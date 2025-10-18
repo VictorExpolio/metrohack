@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://bqvsrnyxgfih4"]
+
+[ext_resource type="PackedScene" uid="uid://cn5t6b45d5nwj" path="res://scenes/ui/card_menu_ui.tscn" id="1_chmpv"]
+[ext_resource type="Script" uid="uid://cxbdtd1x3w5jt" path="res://scenes/ui/card_rewards.gd" id="1_gx0x2"]
+[ext_resource type="Script" uid="uid://0podk2kml57o" path="res://custom_resources/card.gd" id="2_14wmn"]
+[ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="2_cak6g"]
+[ext_resource type="PackedScene" uid="uid://cqth2eyt5mj4e" path="res://scenes/ui/card_tooltip_popup.tscn" id="3_0y8k5"]
+[ext_resource type="Resource" uid="uid://cnsc7rshhqu4y" path="res://characters/warrior/cards/warrior_big_slam.tres" id="3_27adq"]
+[ext_resource type="Resource" uid="uid://ddgp05axangwd" path="res://characters/warrior/cards/warrior_slash.tres" id="4_etycs"]
+[ext_resource type="Resource" uid="uid://d2x5mfqb6mtn5" path="res://characters/warrior/cards/warrior_true_strength.tres" id="5_opbjd"]
+
+[node name="CardRewards" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0265934, 0.0169326, 0.0721508, 0.831373)
+script = ExtResource("1_gx0x2")
+rewards = Array[ExtResource("2_14wmn")]([ExtResource("3_27adq"), ExtResource("4_etycs"), ExtResource("5_opbjd")])
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.5
+offset_top = -20.0
+offset_right = 41.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Cards" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CardMenuUI" parent="VBoxContainer/Cards" instance=ExtResource("1_chmpv")]
+layout_mode = 2
+
+[node name="CardMenuUI2" parent="VBoxContainer/Cards" instance=ExtResource("1_chmpv")]
+layout_mode = 2
+
+[node name="CardMenuUI3" parent="VBoxContainer/Cards" instance=ExtResource("1_chmpv")]
+layout_mode = 2
+
+[node name="SkipCardRewards" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 12)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_cak6g")
+text = "Skip"
+
+[node name="CardTooltipPopup" parent="." instance=ExtResource("3_0y8k5")]
+visible = false
+layout_mode = 1
+
+[node name="TakeButtton" type="Button" parent="CardTooltipPopup"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 12)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -32.0
+offset_right = 18.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_cak6g")
+text = "Take"

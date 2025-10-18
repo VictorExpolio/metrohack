@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=5 format=3 uid="uid://sygadfnlild3"]
+
+[ext_resource type="Script" uid="uid://dxcvhe627nsm1" path="res://custom_resources/character_stats.gd" id="1_nliw2"]
+[ext_resource type="Texture2D" uid="uid://c7xx3uproscj" path="res://art/tile_0128.png" id="1_xju84"]
+[ext_resource type="Resource" uid="uid://tnykk0iyh6hj" path="res://characters/warrior/warrior_draftable_cards.tres" id="2_wgifn"]
+[ext_resource type="Resource" uid="uid://c7t48h3jho6wv" path="res://characters/warrior/warrior_starting_deck.tres" id="3_wgifn"]
+
+[resource]
+script = ExtResource("1_nliw2")
+character_name = "Flipper Dolphin"
+description = "All purpose multitool,
+easy acces to all kinds of 
+terminals and devices."
+portrait = ExtResource("1_xju84")
+starting_deck = ExtResource("3_wgifn")
+draftable_cards = ExtResource("2_wgifn")
+cards_per_turn = 4
+max_mana = 3
+max_health = 18
+art = ExtResource("1_xju84")
+metadata/_custom_type_script = "uid://dxcvhe627nsm1"

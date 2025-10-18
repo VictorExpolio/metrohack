@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlit7thx0wfse"]
+
+[ext_resource type="Script" uid="uid://cd14qnlg7n132" path="res://scenes/ui/main_menu.gd" id="1_1g8jr"]
+[ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="1_fe2o3"]
+[ext_resource type="Texture2D" uid="uid://bb3rcs5nqntir" path="res://art/arrow.png" id="2_1g8jr"]
+
+[sub_resource type="Gradient" id="Gradient_m1kxf"]
+offsets = PackedFloat32Array(0, 0.270992, 0.851145, 1)
+colors = PackedColorArray(0.550949, 0.669489, 0.850327, 1, 0.569588, 0.706386, 0.784958, 1, 0.567155, 0.455891, 0.716736, 1, 0.404651, 0.237356, 0.52027, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x2yvf"]
+gradient = SubResource("Gradient_m1kxf")
+
+[sub_resource type="LabelSettings" id="LabelSettings_uhagc"]
+shadow_size = 2
+shadow_color = Color(0.225898, 0.155582, 0.338307, 0.6)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1g8jr")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_x2yvf")
+
+[node name="GameTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 12.0
+offset_right = 96.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme = ExtResource("1_fe2o3")
+text = "Hacking Deckbuilder"
+label_settings = SubResource("LabelSettings_uhagc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -23.0
+offset_right = 40.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fe2o3")
+theme_override_constants/separation = 4
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 12)
+layout_mode = 2
+text = "Continue"
+
+[node name="NewRun" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(48, 12)
+layout_mode = 2
+text = "Start RUN"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(48, 12)
+layout_mode = 2
+text = "EXIT"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(44, 102)
+scale = Vector2(2.52, 3.48)
+texture = ExtResource("2_1g8jr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(212, 102)
+scale = Vector2(2.52, 3.48)
+texture = ExtResource("2_1g8jr")
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewRun" to="." method="_on_new_run_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

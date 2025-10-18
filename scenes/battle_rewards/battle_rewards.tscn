@@ -1,0 +1,129 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2k1ikqv4jyrq"]
+
+[ext_resource type="Script" uid="uid://ceu6pkdrgiumr" path="res://scenes/battle_rewards/battle_rewards.gd" id="1_qeoyd"]
+[ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="2_dw2ox"]
+[ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://art/background.png" id="2_kxtc4"]
+[ext_resource type="PackedScene" uid="uid://1gs5q2ex5e5b" path="res://scenes/ui/reward_button.tscn" id="4_gf7kw"]
+[ext_resource type="Texture2D" uid="uid://crqlow1y5nhad" path="res://art/money.png" id="5_6ckhh"]
+[ext_resource type="Texture2D" uid="uid://cp1i4llsn8lrr" path="res://art/rarity.png" id="5_7jb2c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gf7kw"]
+font_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dw2ox"]
+bg_color = Color(0.211402, 0.13154, 0.195441, 0.721569)
+
+[node name="BattleReward" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qeoyd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kxtc4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BackgroundDim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.189286, 0.144361, 0.223825, 0.65098)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.657443, 0.731811, 0.714293, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(80, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -35.0
+offset_right = 40.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.442923, 0.521808, 0.503672, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_dw2ox")
+text = "Rewards"
+label_settings = SubResource("LabelSettings_gf7kw")
+horizontal_alignment = 1
+
+[node name="RewardContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(112, 68)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dw2ox")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/RewardContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Rewards" type="VBoxContainer" parent="VBoxContainer/RewardContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GoldReward" parent="VBoxContainer/RewardContainer/MarginContainer/Rewards" instance=ExtResource("4_gf7kw")]
+layout_mode = 2
+reward_icon = ExtResource("5_6ckhh")
+reward_text = "Get 120 money"
+
+[node name="CardReward" parent="VBoxContainer/RewardContainer/MarginContainer/Rewards" instance=ExtResource("4_gf7kw")]
+layout_mode = 2
+reward_icon = ExtResource("5_7jb2c")
+reward_text = "Add new card"
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(60, 12)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_dw2ox")
+text = "Continue"
+
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

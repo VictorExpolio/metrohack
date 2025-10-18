@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqth2eyt5mj4e"]
+
+[ext_resource type="Script" uid="uid://c2qa75kcuck65" path="res://scenes/ui/card_tooltip_popup.gd" id="1_khfwb"]
+[ext_resource type="PackedScene" uid="uid://cn5t6b45d5nwj" path="res://scenes/ui/card_menu_ui.tscn" id="1_xpdyn"]
+[ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="2_khfwb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sobtc"]
+font_size = 12
+
+[node name="CardTooltipPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_khfwb")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.256247, 0.248523, 0.298701, 0.784314)
+
+[node name="BackgroundCard" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 20.0
+offset_right = -24.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.144456, 0.13936, 0.172332, 0.784314)
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -46.0
+offset_right = 93.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TooltipCard" type="CenterContainer" parent="VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CardMenuUI2" parent="VBoxContainer2/TooltipCard" instance=ExtResource("1_xpdyn")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CardTitle" type="Label" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_khfwb")
+text = "CARD TITLE"
+label_settings = SubResource("LabelSettings_sobtc")
+
+[node name="CardDescription" type="RichTextLabel" parent="VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("2_khfwb")
+bbcode_enabled = true
+text = "Card 001 Description1122 Card Description
+
+Card Description177Card Description
+"
+fit_content = true

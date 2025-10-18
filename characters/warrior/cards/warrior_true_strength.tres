@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d2x5mfqb6mtn5"]
+
+[ext_resource type="Texture2D" uid="uid://dojlh80rte165" path="res://art/tile_0107.png" id="1_bj3le"]
+[ext_resource type="Script" uid="uid://yhriayskjwmt" path="res://characters/warrior/cards/warrior_true_strength.gd" id="2_rnlwg"]
+
+[resource]
+script = ExtResource("2_rnlwg")
+id = "warrior_true_strength"
+type = 2
+rarity = 2
+target = 0
+cost = 2
+icon = ExtResource("1_bj3le")
+tooltip_text = "[center]At the start of your turn gain 2 [color=\"ff0000\"]Charged[/color] 
+[/center]"
+metadata/_custom_type_script = "uid://0podk2kml57o"

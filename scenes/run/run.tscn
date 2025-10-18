@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2nv4d01l2d6w"]
+
+[ext_resource type="PackedScene" uid="uid://ctnufymutt482" path="res://scenes/map/map.tscn" id="1_l7o68"]
+[ext_resource type="Script" uid="uid://b1ptcjp5qdris" path="res://scenes/run/run.gd" id="1_wdonh"]
+[ext_resource type="Resource" uid="uid://dnvjw5blnr1oc" path="res://scenes/run/run_startup.tres" id="2_o4jfg"]
+[ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="2_wdonh"]
+[ext_resource type="PackedScene" uid="uid://cin1q77wcxwsp" path="res://scenes/ui/card_pile_opener.tscn" id="5_0tt4g"]
+[ext_resource type="PackedScene" uid="uid://ccg7tfjvsmqv8" path="res://scenes/ui/money_ui.tscn" id="5_wo0nw"]
+[ext_resource type="Texture2D" uid="uid://c2vj2hwu4aert" path="res://art/card_blank_fulldeck.png" id="6_wo0nw"]
+[ext_resource type="PackedScene" uid="uid://brb278qln4gb4" path="res://scenes/ui/card_pile_view.tscn" id="7_ux63y"]
+
+[node name="Run" type="Node"]
+script = ExtResource("1_wdonh")
+run_startup = ExtResource("2_o4jfg")
+
+[node name="Map" parent="." instance=ExtResource("1_l7o68")]
+
+[node name="CurrentView" type="Node" parent="."]
+
+[node name="DebugButtons" type="VBoxContainer" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+alignment = 1
+
+[node name="MapButton" type="Button" parent="DebugButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 12)
+layout_mode = 2
+theme = ExtResource("2_wdonh")
+text = "Map"
+
+[node name="BattleButton" type="Button" parent="DebugButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 12)
+layout_mode = 2
+theme = ExtResource("2_wdonh")
+text = "Battle"
+
+[node name="ShopButton" type="Button" parent="DebugButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 12)
+layout_mode = 2
+theme = ExtResource("2_wdonh")
+text = "Shop"
+
+[node name="TreasureButton" type="Button" parent="DebugButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 12)
+layout_mode = 2
+theme = ExtResource("2_wdonh")
+text = "Treasure"
+
+[node name="RewardsButton" type="Button" parent="DebugButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 12)
+layout_mode = 2
+theme = ExtResource("2_wdonh")
+text = "Rewards"
+
+[node name="CampfireButton" type="Button" parent="DebugButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 12)
+layout_mode = 2
+theme = ExtResource("2_wdonh")
+text = "Campfire"
+
+[node name="TopBar" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Background" type="ColorRect" parent="TopBar"]
+custom_minimum_size = Vector2(0, 16)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0.282353, 0.235294, 0.333333, 0.886275)
+
+[node name="BarItems" type="HBoxContainer" parent="TopBar"]
+custom_minimum_size = Vector2(0, 16)
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 3.0
+offset_right = -3.0
+offset_bottom = 17.0
+grow_horizontal = 2
+
+[node name="MoneyUI" parent="TopBar/BarItems" instance=ExtResource("5_wo0nw")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Placeholder" type="Control" parent="TopBar/BarItems"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeckButton" parent="TopBar/BarItems" node_paths=PackedStringArray("counter") instance=ExtResource("5_0tt4g")]
+custom_minimum_size = Vector2(6, 8)
+layout_mode = 2
+texture_normal = ExtResource("6_wo0nw")
+counter = NodePath("DeckCounter")
+
+[node name="DeckCounter" type="Label" parent="TopBar/BarItems/DeckButton"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 15.0
+offset_right = 7.0
+offset_bottom = 21.0
+theme = ExtResource("2_wdonh")
+text = "59"
+horizontal_alignment = 1
+
+[node name="DeckPileView" parent="TopBar" instance=ExtResource("7_ux63y")]
+visible = false
