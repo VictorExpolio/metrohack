@@ -12,6 +12,6 @@ rarity = 0
 target = 1
 cost = 1
 icon = ExtResource("1_ungqh")
-tooltip_text = "[center]Inflict [color=\"ff0000\"]6[/color] damage a the enemy[/center]"
+tooltip_text = "[center]Inflict [color=\"ff0000\"]4[/color] damage a the enemy[/center]"
 sound = ExtResource("3_6uoki")
 metadata/_custom_type_script = "uid://0podk2kml57o"

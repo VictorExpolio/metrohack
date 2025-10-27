@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BattleStats" load_steps=3 format=3 uid="uid://cwnae1655e6ke"]
+
+[ext_resource type="Script" uid="uid://bh3ub40151mgp" path="res://custom_resources/battle_stats.gd" id="1_6ecy8"]
+[ext_resource type="PackedScene" uid="uid://0u82h2p6bkoj" path="res://battles/tier_2_crab_bat2.tscn" id="1_uyuu6"]
+
+[resource]
+script = ExtResource("1_6ecy8")
+battle_tier = 2
+weight = 5.0
+gold_reward_min = 61
+gold_reward_max = 79
+enemies = ExtResource("1_uyuu6")
+metadata/_custom_type_script = "uid://bh3ub40151mgp"

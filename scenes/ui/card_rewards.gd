@@ -20,13 +20,13 @@ func _ready() -> void:
 	take_buttton.pressed.connect(
 		func():
 			card_reward_selected.emit(selected_card)
-			print("drafted %s"% selected_card.id)
+			#print("drafted %s"% selected_card.id)
 			queue_free()
 	)
 	skip_card_rewards.pressed.connect(
 		func():
 			card_reward_selected.emit(null)
-			print("SKIP card")
+			#print("SKIP card")
 			queue_free()
 	)
 

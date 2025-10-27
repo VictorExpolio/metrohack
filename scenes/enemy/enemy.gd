@@ -11,6 +11,7 @@ const  WHITE_SPRITE_MATERIAL := preload("res://art/white_sprite_material.tres")
 @onready var arrow: Sprite2D = $Arrow
 @onready var stats_ui: StatsUI = $StatsUI
 @onready var intent_ui: IntentUI = $IntentUI
+@onready var status_handler: StatusHandler = $StatusHandler
 
 var enemy_action_picker: EnemyActionPicker
 var current_action: EnemyAction : set = set_current_action
@@ -73,8 +74,6 @@ func update_action() -> void:
 	if new_conditional_action and current_action!= new_conditional_action:
 		current_action = new_conditional_action
 	
-
-
 func take_damage(damage : int) -> void:
 	if stats.health <= 0:
 		return
@@ -90,11 +89,10 @@ func take_damage(damage : int) -> void:
 	tween.finished.connect(
 		func():
 			sprite_2d.material = null
-			
 			if stats.health <= 0:
+				Events.enemy_died.emit(self)
 				queue_free()
 	)
-	
 	
 func _on_area_entered(_area: Area2D) -> void:
 	arrow.show()

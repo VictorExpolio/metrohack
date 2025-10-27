@@ -24,15 +24,13 @@ func _ready() -> void:
 	for node: Node in rewards.get_children():
 		node.queue_free()
 	
-	run_stats = RunStats.new()
+	#run_stats = RunStats.new()
 	#injectamos instancia para probar esta escena aislada
-	character_stats = preload("res://characters/warrior/warrior.tres").create_instance()
+	#character_stats = preload("res://characters/warrior/warrior.tres").create_instance()
 	#prints de dinero
-	run_stats.money_changed.connect(func(): print("Get: %s"% run_stats.money))
+	#run_stats.money_changed.connect(func(): print("Get: %s"% run_stats.money))
+	#add_money_reward(77)
 	
-	add_money_reward(77)
-	add_card_reward()
-	add_card_reward()
 	
 func add_money_reward(amount: int) -> void:
 	var money_reward := REWARD_BUTTON.instantiate() as RewardButton
@@ -105,9 +103,9 @@ func _on_gold_reward_taken(amount: int) -> void:
 func _on_card_reward_taken(card: Card) -> void:
 	if not character_stats or not card:
 		return
-	print("Deck Before:\n%s\n" % character_stats.deck)
+	#print("Deck Before:\n%s\n" % character_stats.deck)
 	character_stats.deck.add_card(card)
-	print("Deck After:\n%s\n" % character_stats.deck)
+	#print("Deck After:\n%s\n" % character_stats.deck)
 
 
 func _on_continue_button_pressed() -> void:

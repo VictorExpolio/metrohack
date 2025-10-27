@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbgwy0msqw8s6"]
+
+[ext_resource type="Texture2D" uid="uid://c0l0l1f2p81cq" path="res://art/path_line.png" id="1_hx6oq"]
+
+[node name="MapLine" type="Line2D"]
+modulate = Color(0.922862, 0.729283, 0.832892, 1)
+texture_repeat = 2
+texture = ExtResource("1_hx6oq")

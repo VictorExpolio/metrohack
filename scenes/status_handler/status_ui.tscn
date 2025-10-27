@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwx7x8km3icv1"]
+
+[ext_resource type="Texture2D" uid="uid://dnyo1rpbhvm2x" path="res://art/More_kenney/tile_0008.png" id="1_r24ij"]
+[ext_resource type="Script" uid="uid://lniw08uqdowk" path="res://scenes/status_handler/status_ui.gd" id="1_vm08l"]
+[ext_resource type="Resource" uid="uid://bmvthsk8y1djf" path="res://statuses/charged.tres" id="2_tth6i"]
+[ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="2_vm08l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tth6i"]
+font_size = 6
+
+[node name="StatusUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vm08l")
+status = ExtResource("2_tth6i")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 0
+offset_right = 12.0
+offset_bottom = 12.0
+texture = ExtResource("1_r24ij")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Duration" type="Label" parent="."]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 17.0
+offset_bottom = 18.0
+theme = ExtResource("2_vm08l")
+text = "99"
+label_settings = SubResource("LabelSettings_tth6i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stacks" type="Label" parent="."]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 17.0
+offset_bottom = 18.0
+theme = ExtResource("2_vm08l")
+text = "99"
+label_settings = SubResource("LabelSettings_tth6i")
+horizontal_alignment = 1
+vertical_alignment = 1

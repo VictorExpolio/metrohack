@@ -20,13 +20,14 @@ signal player_died
 #Enemy-related events
 signal enemy_action_completed(enemy: Enemy)
 signal enemy_turn_ended
+signal enemy_died(enemy: Enemy)
 
 #Battle-related events
 signal battle_over_screen_requested(text : String, type: BattleOverPanel.Type)
 signal battle_won
 
 #Map-related events
-signal map_exited
+signal map_exited(room : Room)
 
 #Shop-related events
 signal shop_exited
@@ -39,3 +40,6 @@ signal battle_reward_exited
 
 #Treasure-related events
 signal treasure_room_exited
+
+#EventRoom-related events
+signal event_room_exited
