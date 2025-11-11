@@ -6,20 +6,23 @@ const  WHITE_SPRITE_MATERIAL := preload("res://art/white_sprite_material.tres")
 
 @export var stats : EnemyStats : set = set_enemy_stats
 
-
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var arrow: Sprite2D = $Arrow
 @onready var stats_ui: StatsUI = $StatsUI
 @onready var intent_ui: IntentUI = $IntentUI
 @onready var status_handler: StatusHandler = $StatusHandler
+@onready var modifier_handler: ModifierHandler = $ModifierHandler
 
 var enemy_action_picker: EnemyActionPicker
 var current_action: EnemyAction : set = set_current_action
 
+#por si te da null la ref de export al status_owner
+#ready() -> void: status_handler.status_owner = self
+
 func set_current_action(value: EnemyAction) -> void:
 	current_action = value
-	if current_action:
-		intent_ui.update_intent(current_action.intent)
+	update_intent()
+
 
 
 func set_enemy_stats(value : EnemyStats) -> void:
@@ -41,7 +44,12 @@ func update_enemy() -> void:
 	arrow.position = Vector2.RIGHT * (sprite_2d.get_rect().size.x / 2 + ARROW_OFFSET)
 	setup_ai()
 	update_stats()
-	
+
+func update_intent() -> void:
+	if current_action:
+		current_action.update_intent_text()
+		intent_ui.update_intent(current_action.intent)
+
 func do_turn() -> void:
 	print("enemy func do_turn()")
 	stats.block = 0
@@ -74,16 +82,18 @@ func update_action() -> void:
 	if new_conditional_action and current_action!= new_conditional_action:
 		current_action = new_conditional_action
 	
-func take_damage(damage : int) -> void:
+func take_damage(damage : int, which_modifier: Modifier.Type) -> void:
 	if stats.health <= 0:
 		return
 	
 	sprite_2d.material = WHITE_SPRITE_MATERIAL
+	#var modified_damage := modifier_handler.get_modified_value(damage, Modifier.Type.DMG_TAKEN)
+	var modified_damage := modifier_handler.get_modified_value(damage, which_modifier)
 	
 	var tween := create_tween()
 	tween.tween_callback(Shaker.shake.bind(self, 16, 0.15))
 	#Before -> stats.take_damage(damage)
-	tween.tween_callback(stats.take_damage.bind(damage))
+	tween.tween_callback(stats.take_damage.bind(modified_damage))
 	tween.tween_interval(0.18)
 	
 	tween.finished.connect(

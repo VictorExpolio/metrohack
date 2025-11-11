@@ -1,0 +1,136 @@
+[gd_scene load_steps=5 format=3 uid="uid://kqb5uyf2ud1x"]
+
+[ext_resource type="Script" uid="uid://cr32cnu5rgd11" path="res://scenes/artifact_handler/artifact_tooltip.gd" id="1_5ei6s"]
+[ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="3_1er4v"]
+[ext_resource type="Texture2D" uid="uid://cg1a3jk6tsa8f" path="res://art/More_kenney/tile_0028.png" id="3_b25sr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sobtc"]
+font_size = 12
+font_color = Color(0.341176, 1, 1, 1)
+
+[node name="ArtifactTooltip" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5ei6s")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.256247, 0.248523, 0.298701, 0.784314)
+
+[node name="BackgroundCard" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 25.0
+offset_right = -18.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.144456, 0.13936, 0.172332, 0.784314)
+
+[node name="BackgroundIcon" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 46.0
+offset_right = -158.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.737255, 0.764706, 0.960784, 0.333333)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -42.0
+offset_right = 97.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="ArtifactTitle" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_1er4v")
+text = "CARD TITLE"
+label_settings = SubResource("LabelSettings_sobtc")
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="ArtifactIcon" type="TextureRect" parent="VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(68, 68)
+layout_mode = 2
+texture = ExtResource("3_b25sr")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="VBoxTextsContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="ArtifactDescription" type="RichTextLabel" parent="VBoxContainer/VBoxContainer2/VBoxTextsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("3_1er4v")
+bbcode_enabled = true
+text = "Card 001 Description1122 Card Description Card Description177Card Description
+"
+fit_content = true
+
+[node name="ArtifactFlavour" type="RichTextLabel" parent="VBoxContainer/VBoxContainer2/VBoxTextsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("3_1er4v")
+bbcode_enabled = true
+text = "Card 001 Description1122 Card Description Card Description177Card Description
+"
+fit_content = true
+
+[node name="BackButton" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 12)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -55.0
+offset_top = 7.0
+offset_right = -19.0
+offset_bottom = 19.0
+grow_horizontal = 0
+theme = ExtResource("3_1er4v")
+text = "Back"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

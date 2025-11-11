@@ -10,6 +10,7 @@ const CARD_TEXT := "Add New Card"
 #RELIC TEXT and ICON Constants
 @export var run_stats: RunStats
 @export var character_stats: CharacterStats
+@export var artifact_handler: ArtifactHandler
 
 @onready var rewards: VBoxContainer = %Rewards
 
@@ -45,7 +46,14 @@ func add_card_reward() -> void:
 	card_reward.reward_text = CARD_TEXT
 	card_reward.pressed.connect(_show_card_rewards)
 	rewards.add_child.call_deferred(card_reward)
-	print("show card rewards")
+
+func add_artifact_reward(artifact: Artifact) -> void:
+	print("Entramos en la función add_artifact_rewawrd con UN %s" %artifact.id)
+	var artifact_reward := REWARD_BUTTON.instantiate() as RewardButton
+	artifact_reward.reward_icon = artifact.icon
+	artifact_reward.reward_text = artifact.artifact_name
+	artifact_reward.pressed.connect(_on_artifact_reward_taken.bind(artifact))
+	rewards.add_child.call_deferred(artifact_reward)
 	
 func _show_card_rewards() -> void:
 	print("show card rewards")
@@ -107,6 +115,11 @@ func _on_card_reward_taken(card: Card) -> void:
 	character_stats.deck.add_card(card)
 	#print("Deck After:\n%s\n" % character_stats.deck)
 
+func _on_artifact_reward_taken(artifact: Artifact) -> void:
+	if not artifact or not artifact_handler:
+		return
+		
+	artifact_handler.add_artifact(artifact)
 
 func _on_continue_button_pressed() -> void:
 	Events.battle_reward_exited.emit()

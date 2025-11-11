@@ -10,7 +10,10 @@ type = 0
 rarity = 1
 target = 1
 cost = 2
+trashes = false
+credit_cost = 0
+money_cost = 80
 icon = ExtResource("1_odk1c")
-tooltip_text = "[center]Inflict [color=\"ff0000\"]10[/color] damage and apply 2  [color=\"ff0000\"]Exposed[/color] 
+tooltip_text = "[center]Inflict [color=\"ff0000\"]%s[/color] damage and apply 2  [color=\"ff0000\"]Exposed[/color] 
 [/center]"
 metadata/_custom_type_script = "uid://0podk2kml57o"

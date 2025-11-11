@@ -11,6 +11,7 @@ font_size = 6
 [node name="StatusUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 2
 script = ExtResource("1_vm08l")
 status = ExtResource("2_tth6i")
 

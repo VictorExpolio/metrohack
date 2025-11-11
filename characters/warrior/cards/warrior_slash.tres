@@ -11,7 +11,10 @@ type = 0
 rarity = 1
 target = 2
 cost = 2
+trashes = true
+credit_cost = 0
+money_cost = 70
 icon = ExtResource("1_eofgd")
-tooltip_text = "[center]Inflict [color=\"ff0000\"]6[/color] damage ALL enemies[/center]"
+tooltip_text = "[center]Inflict [color=\"ff0000\"]%s[/color] damage ALL enemies[/center] TRASHES"
 sound = ExtResource("3_kivtu")
 metadata/_custom_type_script = "uid://0podk2kml57o"

@@ -11,7 +11,10 @@ type = 1
 rarity = 0
 target = 0
 cost = 1
+trashes = false
+credit_cost = 0
+money_cost = 20
 icon = ExtResource("1_5nea4")
-tooltip_text = "[center] Blocks [color=\"ff0000\"]5[/color] damage this turn[/center]"
+tooltip_text = "[center] Blocks [color=\"ff0000\"]%s[/color] damage this turn[/center]"
 sound = ExtResource("3_1eir7")
 metadata/_custom_type_script = "uid://0podk2kml57o"

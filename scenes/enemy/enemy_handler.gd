@@ -7,6 +7,7 @@ func _ready() -> void:
 	Events.enemy_died.connect(_on_enemy_died)
 	#signal enemy_action_completed(enemy: Enemy)
 	Events.enemy_action_completed.connect(_on_enemy_action_completed)
+	Events.player_hand_drawn.connect(_on_player_hand_drawn)
 
 func setup_enemies(battle_stats: BattleStats) -> void:
 	#Comprobar que haya BattleStats y limpiar los enemigos
@@ -42,7 +43,6 @@ func start_turn() -> void:
 	
 	_start_next_enemy_turn()
 
-
 func _start_next_enemy_turn() -> void:
 	if acting_enemies.is_empty():
 		Events.enemy_turn_ended.emit()
@@ -68,3 +68,7 @@ func _on_enemy_died(enemy: Enemy) -> void:
 
 func _on_enemy_action_completed(enemy : Enemy) -> void:
 	enemy.status_handler.apply_statuses_by_type(Status.Type.END_OF_TURN)
+	
+func _on_player_hand_drawn() -> void:
+	for enemy : Enemy in get_children():
+		enemy.update_intent()

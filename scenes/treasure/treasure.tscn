@@ -1,7 +1,95 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqh4tt4mubm8k"]
+[gd_scene load_steps=16 format=3 uid="uid://cqh4tt4mubm8k"]
 
 [ext_resource type="Script" uid="uid://8cjh2gcthpjl" path="res://scenes/treasure/treasure.gd" id="1_5dwmd"]
 [ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="2_8kvvt"]
+[ext_resource type="Texture2D" uid="uid://c0l0l1f2p81cq" path="res://art/path_line.png" id="2_1466h"]
+[ext_resource type="Script" uid="uid://dgtcp4u30l4g7" path="res://custom_resources/artifact.gd" id="2_gkj16"]
+[ext_resource type="Resource" uid="uid://cbr5oda8ied4r" path="res://artifacts/code_discount.tres" id="3_mn6fe"]
+[ext_resource type="Resource" uid="uid://bc8ohhy6xrxf8" path="res://artifacts/block_antenna.tres" id="4_8auyv"]
+[ext_resource type="Texture2D" uid="uid://coitbmc0yn8tt" path="res://art/Kenney_board_icons/dice_close.png" id="4_1466h"]
+[ext_resource type="Resource" uid="uid://b2fkw085sl0io" path="res://artifacts/explosive_chip.tres" id="5_bbvtr"]
+[ext_resource type="Resource" uid="uid://1m2scb1y085e" path="res://artifacts/stabilizer.tres" id="6_gkj16"]
+
+[sub_resource type="Gradient" id="Gradient_w2wav"]
+colors = PackedColorArray(0.501961, 0.580392, 0.52549, 1, 0.807477, 0.766968, 0.689512, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6jn8c"]
+gradient = SubResource("Gradient_w2wav")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nr0se"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 125.51
+direction = Vector3(0, -1, 0)
+spread = 80.0
+initial_velocity_min = 18.9
+initial_velocity_max = 60.7
+gravity = Vector3(0, 12, 0)
+damping_max = 5.0
+color = Color(1, 1, 1, 0.921569)
+color_ramp = SubResource("GradientTexture1D_6jn8c")
+
+[sub_resource type="Animation" id="Animation_gkj16"]
+resource_name = "idle"
+length = 1.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.4),
+"transitions": PackedFloat32Array(1, 2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.4),
+"transitions": PackedFloat32Array(2, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.784314), Color(1, 1, 1, 1), Color(1, 1, 1, 0.784314)]
+}
+
+[sub_resource type="Animation" id="Animation_mn6fe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8auyv"]
+_data = {
+&"RESET": SubResource("Animation_mn6fe"),
+&"idle": SubResource("Animation_gkj16")
+}
 
 [node name="Treasure" type="Control"]
 layout_mode = 3
@@ -11,58 +99,86 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5dwmd")
+treasure_artifact_pool = Array[ExtResource("2_gkj16")]([ExtResource("3_mn6fe"), ExtResource("4_8auyv"), ExtResource("5_bbvtr"), ExtResource("6_gkj16")])
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="BackgroundLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.657443, 0.731811, 0.714293, 1)
+color = Color(0.524049, 0.714908, 0.695129, 1)
+metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(80, 60)
-layout_mode = 1
+[node name="ParticlesLayer" type="CanvasLayer" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="ParticlesLayer"]
+position = Vector2(127, 65)
+amount = 80
+texture = ExtResource("2_1466h")
+lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_nr0se")
+
+[node name="UIOver" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ColorRect2" type="ColorRect" parent="UIOver"]
+custom_minimum_size = Vector2(180, 88)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -35.0
-offset_right = 40.0
-offset_bottom = 25.0
+offset_left = -60.0
+offset_top = -36.0
+offset_right = 60.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.442923, 0.521808, 0.503672, 1)
+color = Color(0.145098, 0.333333, 0.376471, 0.568627)
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
+[node name="Label" type="Label" parent="UIOver"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = 17.0
+offset_right = 44.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("2_8kvvt")
+theme_override_font_sizes/font_size = 18
+text = "Vault"
+horizontal_alignment = 1
+
+[node name="VaultIcon" type="TextureRect" parent="UIOver"]
+custom_minimum_size = Vector2(48, 48)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(24, 24)
+texture = ExtResource("4_1466h")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_8kvvt")
-text = "Treasure"
-horizontal_alignment = 1
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UIOver/VaultIcon"]
+libraries = {
+&"": SubResource("AnimationLibrary_8auyv")
+}
+autoplay = "idle"
 
-[node name="Button" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 12)
-layout_mode = 2
-theme = ExtResource("2_8kvvt")
-text = "Back"
-
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="gui_input" from="UIOver/VaultIcon" to="." method="_on_vault_icon_gui_input"]

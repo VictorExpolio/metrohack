@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dcn5kcafxiggy"]
+
+[ext_resource type="Texture2D" uid="uid://dnsm5owtcc4qp" path="res://art/More_kenney/tile_0025.png" id="1_gnhh8"]
+[ext_resource type="Script" uid="uid://fcrtx7wggru3" path="res://artifacts/energy_boost.gd" id="2_gnhh8"]
+
+[resource]
+script = ExtResource("2_gnhh8")
+energy_amount = 1
+artifact_name = "Energy Boost"
+id = "energy_boost"
+type = 1
+character_type = 1
+starter_artifact = true
+icon = ExtResource("1_gnhh8")
+shop_cost = 120
+tooltip = "[color=\"87d1d8\"]Energy Boost[/color]
+Gain 1 Energy. At the Start of combat."
+flavour_tooltip = "It promises 50 gr of protein. Taste awfull but fills you up."
+metadata/_custom_type_script = "uid://dgtcp4u30l4g7"

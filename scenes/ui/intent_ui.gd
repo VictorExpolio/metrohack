@@ -3,7 +3,7 @@ extends HBoxContainer
 
 
 @onready var icon: TextureRect = $Icon
-@onready var number: Label = $Number
+@onready var label: Label = $Label
 
 func update_intent(intent : Intent) -> void:
 	if not intent:
@@ -12,7 +12,7 @@ func update_intent(intent : Intent) -> void:
 	
 	icon.texture = intent.icon
 	icon.visible = icon.texture != null
-	number.text = str(intent.number)
-	#solo se muestra si el num es positivo, hay intents sin num por ejemplo block
-	number.visible = intent.number.length() > 0
+	label.text = str(intent.current_text)
+	#cuando el la string no esta vacía, hay intents sin num por ejemplo block
+	label.visible = intent.current_text.length() > 0
 	show()

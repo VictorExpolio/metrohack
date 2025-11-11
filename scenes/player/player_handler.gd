@@ -4,6 +4,8 @@ extends Node
 const HAND_DRAW_INTERVAL : float = 0.25
 const HAND_DISCARD_INTERVAL : float = 0.15
 
+@export var artifacts: ArtifactHandler
+@export var player: Player
 @export var hand: Hand
 
 var character : CharacterStats
@@ -16,18 +18,23 @@ func start_battle(char_stats: CharacterStats) -> void:
 	character.draw_pile = character.deck.duplicate(true)
 	character.draw_pile.shuffle()
 	character.discard_pile = CardPile.new()
+	artifacts.artifacts_activated.connect(_on_artifacts_activated)
+	player.status_handler.statuses_applied.connect(_on_statuses_applied)
 	start_turn()
 	
 	
 func start_turn() -> void:
 	character.block = 0
 	character.reset_mana()
-	draw_cards(character.cards_per_turn)
-	print("--NUEVO TURNO--")
+	artifacts.activate_artifacts_by_type(Artifact.Type.START_OF_TURN)
+	#player.status_handler.apply_statuses_by_type(Status.Type.START_OF_TURN)
+	#draw_cards(character.cards_per_turn)
 	
 func end_turn() -> void:
 	hand.disabled_hand()
-	discard_cards()
+	artifacts.activate_artifacts_by_type(Artifact.Type.END_OF_TURN)
+	#player.status_handler.apply_statuses_by_type(Status.Type.END_OF_TURN)
+	#discard_cards()
 	
 func draw_card() -> void:
 	reshuffle_deck_from_discard()
@@ -70,5 +77,22 @@ func reshuffle_deck_from_discard() -> void:
 	character.draw_pile.shuffle()
 	
 func _on_card_played(card: Card) -> void:
+	if card.trashes or card.type == Card.Type.POWER: #or TODO Type.PROGRAM
+		return
+	
 	character.discard_pile.add_card(card)
+
+func _on_artifacts_activated(type: Artifact.Type) -> void:
+	match type:
+		Artifact.Type.START_OF_TURN:
+			player.status_handler.apply_statuses_by_type(Status.Type.START_OF_TURN)
+		Artifact.Type.END_OF_TURN:
+			player.status_handler.apply_statuses_by_type(Status.Type.END_OF_TURN)
+
+func _on_statuses_applied(type: Status.Type) -> void:
+	match type:
+		Status.Type.START_OF_TURN:
+			draw_cards(character.cards_per_turn)
+		Status.Type.END_OF_TURN:
+			discard_cards()
 	

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b2fkw085sl0io"]
+
+[ext_resource type="Texture2D" uid="uid://dpf6a1txovp3s" path="res://art/More_kenney/tile_0017.png" id="1_f6yk0"]
+[ext_resource type="Script" uid="uid://csinat7lhsug0" path="res://artifacts/explosive_chip.gd" id="2_f6yk0"]
+
+[resource]
+script = ExtResource("2_f6yk0")
+damage = 2
+artifact_name = "Explosive Chip"
+id = "explosive_chip"
+type = 0
+character_type = 0
+starter_artifact = false
+icon = ExtResource("1_f6yk0")
+shop_cost = 96
+tooltip = "[color=\"87d1d8\"]Explosive Chip[/color]
+Deal 2 damage to all enemis. At the start of turn."
+flavour_tooltip = "blablablabalb blabalbalba"
+metadata/_custom_type_script = "uid://dgtcp4u30l4g7"

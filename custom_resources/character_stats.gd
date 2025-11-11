@@ -11,6 +11,7 @@ extends Stats
 @export var draftable_cards: CardPile
 @export var cards_per_turn : int
 @export var max_mana : int
+@export var starting_artifact: Artifact
 
 var mana: int : set = set_mana
 var deck: CardPile
@@ -29,7 +30,9 @@ func take_damage(damage : int) -> void:
 	super.take_damage(damage)
 	if initial_health > health:
 		Events.player_hurt.emit()
-	
+
+func add_mana(amount : int) -> void:
+	mana += amount
 
 func can_play_card(card : Card) -> bool:
 	#OJO AQUI

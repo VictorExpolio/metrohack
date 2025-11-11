@@ -17,7 +17,10 @@ const EVENT_SCENE = preload("res://scenes/shop/shop.tscn")
 @onready var current_view: Node = $CurrentView
 
 @onready var deck_button: CardPileOpener = $TopBar/BarItems/DeckButton
-@onready var deck_pile_view: CardPileView = $TopBar/DeckPileView
+#@onready var deck_pile_view: CardPileView = $TopBar/DeckPileView
+@onready var deck_pile_view: CardPileView = %DeckPileView
+@onready var artifact_handler: ArtifactHandler = %ArtifactHandler
+@onready var artifact_tooltip: ArtifactTooltip = %ArtifactTooltip
 @onready var health_ui: HealthUI = %HealthUI
 @onready var money_ui: MoneyUI = %MoneyUI
 
@@ -79,8 +82,8 @@ func _setup_event_connections() -> void:
 	Events.battle_won.connect(_on_battle_won)
 	Events.battle_reward_exited.connect(_show_map)
 	Events.shop_exited.connect(_show_map)
-	Events.treasure_room_exited.connect(_show_map)
 	Events.campfire_exited.connect(_show_map)
+	Events.treasure_room_exited.connect(_on_treasure_room_exited)
 	
 	Events.map_exited.connect(_on_map_exited)
 	
@@ -95,6 +98,7 @@ func _on_battle_room_entered(room: Room) -> void:
 	var battle_scene: Battle = _change_view(BATTLE_SCENE) as Battle
 	battle_scene.char_stats = character
 	battle_scene.battle_stats = room.battle_stats
+	battle_scene.artifacts = artifact_handler
 	battle_scene.start_battle()
 	
 func _on_battle_won() -> void:
@@ -110,10 +114,36 @@ func _on_campfire_entered() -> void:
 	var campfire := _change_view(CAMPFIRE_SCENE) as Campfire
 	campfire.char_stats = character
 	
+func _on_shop_entered() -> void:
+	var shop := _change_view(SHOP_SCENE) as Shop
+	shop.char_stats = character
+	shop.run_stats = stats
+	shop.artifact_handler = artifact_handler
+	Events.shop_entered.emit(shop)
+	shop.populate_shop()
+
+func _on_treasure_room_entered() -> void:
+	var treasure_scene := _change_view(TREASURE_SCENE) as Treasure
+	treasure_scene.artifact_handler = artifact_handler
+	treasure_scene.char_stats = character
+	treasure_scene.generate_artifact()
+
+func _on_treasure_room_exited(artifact: Artifact) -> void:
+	var reward_scene := _change_view(BATTLE_REWARDS_SCENE) as BattleReward
+	reward_scene.run_stats = stats
+	reward_scene.character_stats = character
+	reward_scene.artifact_handler = artifact_handler
+	
+	reward_scene.add_artifact_reward(artifact)
+
 func _setup_top_bar() -> void:
 	character.stats_changed.connect(health_ui.update_stats.bind(character))
 	health_ui.update_stats(character) 
 	money_ui.run_stats = stats
+	#artifacts setup
+	artifact_handler.add_artifact(character.starting_artifact)
+	Events.artifact_tooltip_requested.connect(artifact_tooltip.show_tooltip)
+	
 	deck_button.card_pile = character.deck
 	deck_pile_view.card_pile = character.deck
 	deck_button.pressed.connect(deck_pile_view.show_current_view.bind("Deck Pile", false))
@@ -124,11 +154,12 @@ func _on_map_exited(room : Room) -> void:
 		Room.Type.MONSTER:
 			_on_battle_room_entered(room)
 		Room.Type.TREASURE:
-			_change_view(TREASURE_SCENE)
+			#_change_view(TREASURE_SCENE)
+			_on_treasure_room_entered()
 		Room.Type.CAMPFIRE:
 			_on_campfire_entered()
 		Room.Type.SHOP:
-			_change_view(SHOP_SCENE)
+			_on_shop_entered()
 		Room.Type.BOSS:
 			_on_battle_room_entered(room)
 		Room.Type.EVENT:

@@ -10,7 +10,8 @@ const DRAGGING_STYLEBOX := preload("res://scenes/card_ui/card_dragging_stylebox.
 #acceso a la clase de Resources
 @export var card: Card : set = _set_card
 @export var char_stats: CharacterStats : set = _set_character_stats
-
+@export var player_modifiers: ModifierHandler
+#FALTA REF TODO
 @onready var card_visuals: CardVisuals = $CardVisuals
 #@onready var panel: Panel = $Panel
 #@onready var cost: Label = $Cost
@@ -52,7 +53,7 @@ func play() -> void:
 	if not card:
 		return
 	
-	card.play(targets, char_stats)
+	card.play(targets, char_stats, player_modifiers)
 	queue_free()
 	
 func _on_gui_input(event: InputEvent) -> void:
@@ -64,6 +65,17 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	card_state_machine.on_mouse_exited()
 	
+func get_active_enemy_modifiers() -> ModifierHandler:
+	if targets.is_empty() or targets.size() > 1 or not targets[0] is Enemy:
+		return null
+	
+	return targets[0].modifier_handler
+
+func request_tooltip() -> void:
+	var enemy_modifiers := get_active_enemy_modifiers()
+	var updated_tooltip := card.get_update_tooltip(player_modifiers, enemy_modifiers)
+	Events.card_tooltip_requested.emit(card.icon, updated_tooltip)
+
 func _set_card(value : Card) -> void:
 	if not is_node_ready():
 		await ready

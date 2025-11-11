@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://1m2scb1y085e"]
+
+[ext_resource type="Texture2D" uid="uid://dnuyr86qbhw0r" path="res://art/More_kenney/tile_0024.png" id="1_il0hy"]
+[ext_resource type="Script" uid="uid://bam1ekn3xv0bt" path="res://artifacts/stablizer.gd" id="2_il0hy"]
+
+[resource]
+script = ExtResource("2_il0hy")
+heal_amount = 6
+artifact_name = "Stabilizer"
+id = "stabilizer"
+type = 3
+character_type = 0
+starter_artifact = false
+icon = ExtResource("1_il0hy")
+shop_cost = 124
+tooltip = "[color=\"87d1d8\"]Stabilizer[/color]
+Restore 6 CP. At the end of combat."
+flavour_tooltip = "First Aid for cardiac problems, some pieces can be useful"
+metadata/_custom_type_script = "uid://dgtcp4u30l4g7"

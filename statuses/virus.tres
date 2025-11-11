@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="VirusStatus" load_steps=3 format=3 uid="uid://bjweg5d7pw6u6"]
+
+[ext_resource type="Texture2D" uid="uid://boklhiqs1414d" path="res://art/tile_0115.png" id="1_jd1on"]
+[ext_resource type="Script" uid="uid://crwjykdviddj8" path="res://statuses/virus_status.gd" id="2_jd1on"]
+
+[resource]
+script = ExtResource("2_jd1on")
+id = "virus"
+type = 1
+stack_type = 1
+can_expire = false
+duration = 0
+stacks = 1
+icon = ExtResource("1_jd1on")
+tooltip = "Deal damage at the end of turn"
+metadata/_custom_type_script = "uid://bd3ukq37glav5"

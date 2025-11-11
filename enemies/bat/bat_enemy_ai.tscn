@@ -11,13 +11,13 @@
 
 [sub_resource type="Resource" id="Resource_24sye"]
 script = ExtResource("4_6cpw6")
-number = "2x4"
+base_text = "2x%s"
 icon = ExtResource("3_5laa2")
 metadata/_custom_type_script = "uid://cgbvdg0r51kq1"
 
 [sub_resource type="Resource" id="Resource_d0kjl"]
 script = ExtResource("4_6cpw6")
-number = ""
+base_text = "%s"
 icon = ExtResource("7_iplk6")
 metadata/_custom_type_script = "uid://cgbvdg0r51kq1"
 
@@ -28,12 +28,12 @@ script = ExtResource("1_hwltk")
 script = ExtResource("2_06k5i")
 intent = SubResource("Resource_24sye")
 type = 1
-chance_weight = 6.0
 sound = ExtResource("5_8hwcw")
+chance_weight = 6.0
 
 [node name="BatBlockAction" type="Node" parent="."]
 script = ExtResource("3_yq87b")
 intent = SubResource("Resource_d0kjl")
 type = 1
-chance_weight = 2.0
 sound = ExtResource("8_ygf61")
+chance_weight = 2.0

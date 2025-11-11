@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bc8ohhy6xrxf8"]
+
+[ext_resource type="Texture2D" uid="uid://cg1a3jk6tsa8f" path="res://art/More_kenney/tile_0028.png" id="1_n4prq"]
+[ext_resource type="Script" uid="uid://cfrkfspkbhh1n" path="res://artifacts/block_antenna.gd" id="2_n4prq"]
+
+[resource]
+script = ExtResource("2_n4prq")
+block_bonus = 2
+artifact_name = "Block Antenna"
+id = "block_antenna"
+type = 2
+character_type = 0
+starter_artifact = false
+icon = ExtResource("1_n4prq")
+shop_cost = 80
+tooltip = "[color=\"87d1d8\"]Block Antenna [/color]
+Gain 2 block. At the end of turn."
+flavour_tooltip = "Inhibitor of digital connections"
+metadata/_custom_type_script = "uid://dgtcp4u30l4g7"

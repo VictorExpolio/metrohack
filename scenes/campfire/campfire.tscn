@@ -8,7 +8,7 @@
 [sub_resource type="Gradient" id="Gradient_civeq"]
 colors = PackedColorArray(0.554675, 0.69994, 1, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_6jn8c"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vcaur"]
 gradient = SubResource("Gradient_civeq")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_auago"]
@@ -20,7 +20,7 @@ initial_velocity_max = 2.0
 gravity = Vector3(0, 12, 0)
 damping_max = 8.0
 color = Color(0.541176, 0.811765, 1, 0.121569)
-color_ramp = SubResource("GradientTexture1D_6jn8c")
+color_ramp = SubResource("GradientTexture1D_vcaur")
 
 [sub_resource type="LabelSettings" id="LabelSettings_56ahn"]
 font_size = 12
@@ -121,6 +121,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.243807, 0.249386, 0.348943, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="BackgroundLayer"]
 custom_minimum_size = Vector2(120, 72)
@@ -137,6 +138,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.443137, 0.521569, 0.501961, 0.392157)
+metadata/_edit_use_anchors_ = true
 
 [node name="ParticlesLayer" type="CanvasLayer" parent="."]
 

@@ -86,3 +86,5 @@ text = "Card 001 Description1122 Card Description
 Card Description177Card Description
 "
 fit_content = true
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

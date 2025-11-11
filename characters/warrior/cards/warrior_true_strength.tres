@@ -10,7 +10,10 @@ type = 2
 rarity = 2
 target = 0
 cost = 2
+trashes = true
+credit_cost = 120
+money_cost = 0
 icon = ExtResource("1_bj3le")
 tooltip_text = "[center]At the start of your turn gain 2 [color=\"ff0000\"]Charged[/color] 
-[/center]"
+[/center] "
 metadata/_custom_type_script = "uid://0podk2kml57o"

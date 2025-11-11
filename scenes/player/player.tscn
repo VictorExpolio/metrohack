@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsbg4bb3qc4e3"]
+[gd_scene load_steps=8 format=3 uid="uid://dsbg4bb3qc4e3"]
 
 [ext_resource type="Texture2D" uid="uid://cpydvk8mq66o5" path="res://art/tile_0087.png" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://brls1grjtwvxt" path="res://scenes/player/player.gd" id="1_gmlin"]
 [ext_resource type="PackedScene" uid="uid://c73lj5se6c1yr" path="res://scenes/ui/stats_ui.tscn" id="2_gmlin"]
 [ext_resource type="Resource" uid="uid://sygadfnlild3" path="res://characters/warrior/warrior.tres" id="2_lvxji"]
+[ext_resource type="PackedScene" uid="uid://cjmhco6i4vlif" path="res://scenes/status_handler/status_handler.tscn" id="5_p47bc"]
+[ext_resource type="PackedScene" uid="uid://chkibjfuxnbpk" path="res://scenes/modifier_handler/modifier_handler.tscn" id="6_0owmy"]
+[ext_resource type="PackedScene" uid="uid://djnsks8lx06yi" path="res://scenes/modifier_handler/modifier.tscn" id="7_qek5x"]
 
 [node name="Player" type="Node2D" groups=["player"]]
 script = ExtResource("1_gmlin")
@@ -15,3 +18,23 @@ texture = ExtResource("1_dovo2")
 [node name="StatsUI" parent="." instance=ExtResource("2_gmlin")]
 offset_top = 8.0
 offset_bottom = 24.0
+
+[node name="StatusHandler" parent="." node_paths=PackedStringArray("status_owner") instance=ExtResource("5_p47bc")]
+offset_left = -24.0
+offset_top = -15.0
+offset_right = -24.0
+offset_bottom = -15.0
+status_owner = NodePath("..")
+
+[node name="ModifierHandler" parent="." instance=ExtResource("6_0owmy")]
+
+[node name="DamageDealtModifier" parent="ModifierHandler" instance=ExtResource("7_qek5x")]
+
+[node name="DamageTakenModifier" parent="ModifierHandler" instance=ExtResource("7_qek5x")]
+type = 1
+
+[node name="CardCostModifier" parent="ModifierHandler" instance=ExtResource("7_qek5x")]
+type = 2
+
+[node name="BlockAddedModifier" parent="ModifierHandler" instance=ExtResource("7_qek5x")]
+type = 5
