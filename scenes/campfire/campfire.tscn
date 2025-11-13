@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://103ybb4p0ykk"]
+[gd_scene load_steps=16 format=3 uid="uid://103ybb4p0ykk"]
 
 [ext_resource type="Script" uid="uid://dceskx56nxudi" path="res://scenes/campfire/campfire.gd" id="1_56ahn"]
 [ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="2_5yci7"]
 [ext_resource type="Resource" uid="uid://sygadfnlild3" path="res://characters/warrior/warrior.tres" id="2_civeq"]
 [ext_resource type="Texture2D" uid="uid://c0l0l1f2p81cq" path="res://art/path_line.png" id="2_vcaur"]
+[ext_resource type="Texture2D" uid="uid://dla0v6ok210d6" path="res://art/art_test/menus/campfire_basicback.png" id="3_6jn8c"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="6_auago"]
 
 [sub_resource type="Gradient" id="Gradient_civeq"]
 colors = PackedColorArray(0.554675, 0.69994, 1, 1, 1, 1, 1, 1)
@@ -23,7 +25,16 @@ color = Color(0.541176, 0.811765, 1, 0.121569)
 color_ramp = SubResource("GradientTexture1D_vcaur")
 
 [sub_resource type="LabelSettings" id="LabelSettings_56ahn"]
-font_size = 12
+font = ExtResource("6_auago")
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_8pjve"]
+font = ExtResource("6_auago")
+font_size = 44
+
+[sub_resource type="LabelSettings" id="LabelSettings_hk2pn"]
+font = ExtResource("6_auago")
+font_size = 44
 
 [sub_resource type="Animation" id="Animation_vcaur"]
 length = 0.001
@@ -113,37 +124,32 @@ char_stats = ExtResource("2_civeq")
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = 0
 
-[node name="ColorRect" type="ColorRect" parent="BackgroundLayer"]
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-color = Color(0.243807, 0.249386, 0.348943, 1)
-metadata/_edit_use_anchors_ = true
+texture = ExtResource("3_6jn8c")
 
-[node name="ColorRect2" type="ColorRect" parent="BackgroundLayer"]
-custom_minimum_size = Vector2(120, 72)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -36.0
-offset_right = 60.0
-offset_bottom = 36.0
+[node name="ColorRect" type="ColorRect" parent="BackgroundLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 552.0
+offset_top = 194.0
+offset_right = -568.0
+offset_bottom = -406.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.443137, 0.521569, 0.501961, 0.392157)
+color = Color(0.32549, 0.156863, 0.478431, 0.392157)
 metadata/_edit_use_anchors_ = true
 
 [node name="ParticlesLayer" type="CanvasLayer" parent="."]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="ParticlesLayer"]
-position = Vector2(127, 65)
+position = Vector2(960, 185)
 amount = 80
 texture = ExtResource("2_vcaur")
 lifetime = 0.8
@@ -157,10 +163,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -46.5
-offset_top = -25.0
-offset_right = 46.5
-offset_bottom = 25.0
+offset_left = -237.0
+offset_top = -189.0
+offset_right = 230.0
+offset_bottom = -57.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -172,43 +178,47 @@ label_settings = SubResource("LabelSettings_56ahn")
 horizontal_alignment = 1
 
 [node name="Spacer" type="Control" parent="UILayer/UI"]
-custom_minimum_size = Vector2(0, 4)
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UILayer/UI"]
 layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 24
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UILayer/UI/HBoxContainer"]
 layout_mode = 2
 
 [node name="RestButton" type="Button" parent="UILayer/UI/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(40, 16)
+custom_minimum_size = Vector2(240, 96)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_5yci7")
+theme_override_font_sizes/font_size = 32
 text = "Rest"
 
 [node name="Description" type="Label" parent="UILayer/UI/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_5yci7")
 text = "+30 HP"
+label_settings = SubResource("LabelSettings_8pjve")
 horizontal_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="UILayer/UI/HBoxContainer"]
 layout_mode = 2
 
-[node name="RestButton" type="Button" parent="UILayer/UI/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(40, 16)
+[node name="ConnectButton" type="Button" parent="UILayer/UI/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(240, 96)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_5yci7")
+theme_override_font_sizes/font_size = 32
 text = "Connect"
 
 [node name="Description" type="Label" parent="UILayer/UI/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("2_5yci7")
 text = "+50 Money"
+label_settings = SubResource("LabelSettings_hk2pn")
 horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

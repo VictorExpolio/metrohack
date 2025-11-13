@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d2orfl107kf37"]
 
 [ext_resource type="Script" uid="uid://bblrmgd53n2i" path="res://scenes/artifact_handler/artifact_ui.gd" id="1_eck2d"]
-[ext_resource type="Texture2D" uid="uid://cg1a3jk6tsa8f" path="res://art/More_kenney/tile_0028.png" id="2_tsibk"]
+[ext_resource type="Texture2D" uid="uid://degd7uqm0mvym" path="res://art/art_test/artifacts/artifacts_icons.png" id="2_eck2d"]
 [ext_resource type="Material" uid="uid://d30aqi80c1nrc" path="res://art/white_sprite_material.tres" id="3_j848f"]
 
 [sub_resource type="Animation" id="Animation_lujo1"]
@@ -67,20 +67,20 @@ _data = {
 }
 
 [node name="ArtifactUI" type="Control"]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_right = 120.0
+offset_bottom = 120.0
 script = ExtResource("1_eck2d")
 
 [node name="Icon" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 0
 offset_right = 20.0
 offset_bottom = 20.0
 pivot_offset = Vector2(10, 10)
-texture = ExtResource("2_tsibk")
+texture = ExtResource("2_eck2d")
 expand_mode = 1
 stretch_mode = 5
 

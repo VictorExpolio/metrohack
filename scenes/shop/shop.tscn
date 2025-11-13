@@ -1,19 +1,23 @@
-[gd_scene load_steps=15 format=3 uid="uid://dvvounug3wh7w"]
+[gd_scene load_steps=16 format=3 uid="uid://dvvounug3wh7w"]
 
 [ext_resource type="Script" uid="uid://mygljvjdjmh2" path="res://scenes/shop/shop.gd" id="1_qaxay"]
 [ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="2_7lxhl"]
 [ext_resource type="Script" uid="uid://dgtcp4u30l4g7" path="res://custom_resources/artifact.gd" id="2_dww4p"]
 [ext_resource type="Texture2D" uid="uid://cd8i2gpkgp1ax" path="res://art/More_kenney/scifiStructure_08.png" id="2_jp048"]
 [ext_resource type="Resource" uid="uid://bc8ohhy6xrxf8" path="res://artifacts/block_antenna.tres" id="3_g6lcs"]
-[ext_resource type="Texture2D" uid="uid://4wj7pct2f36s" path="res://art/More_kenney/scifiStructure_11.png" id="3_jp048"]
 [ext_resource type="Resource" uid="uid://b2fkw085sl0io" path="res://artifacts/explosive_chip.tres" id="4_131kw"]
 [ext_resource type="PackedScene" uid="uid://csshdwm301pv8" path="res://scenes/shop/shop_card.tscn" id="4_ctpgp"]
 [ext_resource type="PackedScene" uid="uid://rwmp6414ioiv" path="res://scenes/shop/shop_artifact.tscn" id="5_ge4d2"]
 [ext_resource type="Resource" uid="uid://1m2scb1y085e" path="res://artifacts/stabilizer.tres" id="5_xoc10"]
 [ext_resource type="Resource" uid="uid://cbr5oda8ied4r" path="res://artifacts/code_discount.tres" id="6_k5co3"]
 [ext_resource type="PackedScene" uid="uid://cqth2eyt5mj4e" path="res://scenes/ui/card_tooltip_popup.tscn" id="6_ptf86"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="11_131kw"]
 [ext_resource type="PackedScene" uid="uid://chkibjfuxnbpk" path="res://scenes/modifier_handler/modifier_handler.tscn" id="13_131kw"]
 [ext_resource type="PackedScene" uid="uid://djnsks8lx06yi" path="res://scenes/modifier_handler/modifier.tscn" id="14_xoc10"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xoc10"]
+font = ExtResource("11_131kw")
+font_size = 136
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -39,15 +43,6 @@ color = Color(0.390631, 0.530759, 0.765868, 1)
 
 [node name="DecorationLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="DecorationLayer"]
-offset_left = 10.0
-offset_top = 25.0
-offset_right = 74.0
-offset_bottom = 89.0
-texture = ExtResource("2_jp048")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="TextureRect2" type="TextureRect" parent="DecorationLayer"]
 offset_left = 66.0
 offset_top = 25.0
@@ -57,50 +52,21 @@ texture = ExtResource("2_jp048")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="DecorationLayer"]
-offset_left = 122.0
-offset_top = 25.0
-offset_right = 186.0
-offset_bottom = 89.0
-texture = ExtResource("2_jp048")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RelicSpot" type="TextureRect" parent="DecorationLayer"]
-offset_left = 10.0
-offset_top = 77.0
-offset_right = 74.0
-offset_bottom = 141.0
-texture = ExtResource("3_jp048")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RelicSpot2" type="TextureRect" parent="DecorationLayer"]
-offset_left = 64.0
-offset_top = 77.0
-offset_right = 128.0
-offset_bottom = 141.0
-texture = ExtResource("3_jp048")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RelicSpot3" type="TextureRect" parent="DecorationLayer"]
-offset_left = 121.0
-offset_top = 77.0
-offset_right = 185.0
-offset_bottom = 141.0
-texture = ExtResource("3_jp048")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="UILayer" type="CanvasLayer" parent="."]
 layer = 2
 
 [node name="ShopContent" type="VBoxContainer" parent="UILayer"]
-offset_left = 22.0
-offset_top = 29.0
-offset_right = 174.0
-offset_bottom = 131.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -376.0
+offset_top = -370.0
+offset_right = 376.0
+offset_bottom = 478.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Cards" type="HBoxContainer" parent="UILayer/ShopContent"]
 unique_name_in_owner = true
@@ -119,7 +85,7 @@ layout_mode = 2
 [node name="Artifacts" type="HBoxContainer" parent="UILayer/ShopContent"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 16
 
 [node name="ShopArtifact" parent="UILayer/ShopContent/Artifacts" instance=ExtResource("5_ge4d2")]
 layout_mode = 2
@@ -131,25 +97,30 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="UILayer"]
-offset_left = 11.0
-offset_top = 8.0
-offset_right = 56.0
-offset_bottom = 23.0
+offset_left = 124.0
+offset_top = 149.0
+offset_right = 482.0
+offset_bottom = 327.0
 theme = ExtResource("2_7lxhl")
 theme_override_font_sizes/font_size = 14
 text = "Shop"
+label_settings = SubResource("LabelSettings_xoc10")
 
 [node name="BackButton" type="Button" parent="UILayer"]
-custom_minimum_size = Vector2(56, 16)
-anchors_preset = 1
+custom_minimum_size = Vector2(260, 80)
+anchors_preset = 3
 anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
-offset_left = -65.0
-offset_top = 116.0
-offset_right = -9.0
-offset_bottom = 132.0
+anchor_bottom = 1.0
+offset_left = -439.0
+offset_top = -178.0
+offset_right = -139.0
+offset_bottom = -78.0
 grow_horizontal = 0
+grow_vertical = 0
 theme = ExtResource("2_7lxhl")
+theme_override_font_sizes/font_size = 36
 text = "Next Station"
 
 [node name="CardTooltipPopup" parent="UILayer" instance=ExtResource("6_ptf86")]

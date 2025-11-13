@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://b2fkw085sl0io"]
 
-[ext_resource type="Texture2D" uid="uid://dpf6a1txovp3s" path="res://art/More_kenney/tile_0017.png" id="1_f6yk0"]
+[ext_resource type="Texture2D" uid="uid://hnp7quau1ypd" path="res://art/art_test/artifacts/artifacts_explosive.png" id="1_f6yk0"]
 [ext_resource type="Script" uid="uid://csinat7lhsug0" path="res://artifacts/explosive_chip.gd" id="2_f6yk0"]
 
 [resource]

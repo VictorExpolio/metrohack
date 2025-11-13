@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://1gs5q2ex5e5b"]
+[gd_scene load_steps=6 format=3 uid="uid://1gs5q2ex5e5b"]
 
 [ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="1_y2wrr"]
-[ext_resource type="Texture2D" uid="uid://crqlow1y5nhad" path="res://art/money.png" id="2_8fbqs"]
 [ext_resource type="Script" uid="uid://8p0tcel6fsoy" path="res://scenes/ui/reward_button.gd" id="2_x4nin"]
+[ext_resource type="Texture2D" uid="uid://bfk3tjapylrah" path="res://art/art_test/basic_icons/money_redux.png" id="3_x4nin"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="4_wraws"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x4nin"]
-font_size = 6
+font = ExtResource("4_wraws")
+font_size = 36
 
 [node name="RewardButton" type="Button"]
-custom_minimum_size = Vector2(88, 16)
+custom_minimum_size = Vector2(560, 92)
 offset_right = 8.0
 offset_bottom = 8.0
 theme = ExtResource("1_y2wrr")
@@ -21,19 +23,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 4
+theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 24
 
 [node name="CustomIcon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(12, 12)
+custom_minimum_size = Vector2(80, 12)
 layout_mode = 2
-texture = ExtResource("2_8fbqs")
+texture = ExtResource("3_x4nin")
 expand_mode = 1
 stretch_mode = 5
 

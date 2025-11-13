@@ -1,14 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2qx4v4d07f0i"]
+[gd_scene load_steps=12 format=3 uid="uid://b2qx4v4d07f0i"]
 
 [ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="1_x0ouv"]
 [ext_resource type="Script" uid="uid://bl24f0oogg2qo" path="res://scenes/ui/card_visuals.gd" id="2_imfec"]
 [ext_resource type="StyleBox" uid="uid://chu6y2qtq4562" path="res://scenes/card_ui/card_base_stylebox.tres" id="2_jxbv6"]
-[ext_resource type="Texture2D" uid="uid://bfvi02kojsa00" path="res://art/tile_0103.png" id="3_imfec"]
 [ext_resource type="Resource" uid="uid://ddgp05axangwd" path="res://characters/warrior/cards/warrior_slash.tres" id="3_m3e03"]
-[ext_resource type="Texture2D" uid="uid://cp1i4llsn8lrr" path="res://art/rarity.png" id="4_m3e03"]
+[ext_resource type="Texture2D" uid="uid://drk4lf3tv2e6s" path="res://art/art_test/cards/just_art/card_ATTACK_art.png" id="5_bp74k"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="5_m3e03"]
+[ext_resource type="Texture2D" uid="uid://kcij3hny5wc0" path="res://art/art_test/cards/full_cards/card_ATTACK.png" id="6_njcf5"]
+[ext_resource type="Texture2D" uid="uid://cpop5p0j5lxet" path="res://art/art_test/cards/elements/card_MARCO.png" id="7_b8ve4"]
+[ext_resource type="Texture2D" uid="uid://dbw4m8qsvjauv" path="res://art/art_test/cards/elements/CREDIT_card_icon.png" id="8_0ge8e"]
+[ext_resource type="Texture2D" uid="uid://csqboky3tt1pd" path="res://art/art_test/cards/elements/RARITY.png" id="8_b8ve4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_njcf5"]
+font = ExtResource("5_m3e03")
+font_size = 48
 
 [node name="CardVisuals" type="Control"]
-custom_minimum_size = Vector2(25, 30)
+custom_minimum_size = Vector2(240, 312)
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("1_x0ouv")
@@ -25,14 +33,6 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("2_jxbv6")
 
-[node name="Cost" type="Label" parent="."]
-layout_mode = 0
-offset_right = 10.0
-offset_bottom = 10.0
-text = "2"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -40,31 +40,88 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -6.0
-offset_top = -7.0
-offset_right = 6.0
-offset_bottom = 5.0
+offset_left = -103.0
+offset_top = -144.0
+offset_right = 101.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("3_imfec")
+texture = ExtResource("5_bp74k")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 312.0
+texture = ExtResource("6_njcf5")
+
+[node name="Marco" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 312.0
+texture = ExtResource("7_b8ve4")
+
+[node name="BaseText" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(228, 80)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 199.0
+offset_right = 234.0
+offset_bottom = 279.0
+color = Color(0.431373, 0.482353, 0.65098, 1)
+
+[node name="CreditCost" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = 22.0
+offset_right = -10.0
+offset_bottom = 75.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("8_0ge8e")
+
+[node name="RarityBase" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(48, 40)
+layout_mode = 0
+offset_left = 97.0
+offset_top = 269.0
+offset_right = 145.0
+offset_bottom = 309.0
+color = Color(0.560784, 0.517647, 0.682353, 1)
+
 [node name="Rarity" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(4, 4)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -1.5
-offset_top = -5.0
-offset_right = 2.5
-offset_bottom = -1.0
+offset_left = -19.0
+offset_top = -44.0
+offset_right = 21.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("4_m3e03")
+texture = ExtResource("8_b8ve4")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Cost" type="Label" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -2.0
+offset_right = 44.0
+offset_bottom = 62.0
+text = "2"
+label_settings = SubResource("LabelSettings_njcf5")
+horizontal_alignment = 1
+vertical_alignment = 1

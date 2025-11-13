@@ -2,8 +2,8 @@ class_name MapGenerator
 extends Node
 
 #cambiar room_width -1
-const X_DIST := 30
-const Y_DIST := 25
+const X_DIST := 280
+const Y_DIST := 320
 const PLACEMENT_RANDOMNESS := 4
 const FLOORS := 15
 const MAP_WIDTH := 7

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://dcn5kcafxiggy"]
 
-[ext_resource type="Texture2D" uid="uid://dnsm5owtcc4qp" path="res://art/More_kenney/tile_0025.png" id="1_gnhh8"]
+[ext_resource type="Texture2D" uid="uid://canc0ca1xh2l3" path="res://art/art_test/artifacts/artifacts_energy.png" id="1_gnhh8"]
 [ext_resource type="Script" uid="uid://fcrtx7wggru3" path="res://artifacts/energy_boost.gd" id="2_gnhh8"]
 
 [resource]

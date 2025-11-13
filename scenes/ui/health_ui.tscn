@@ -1,20 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://di8rack5ubinl"]
 
 [ext_resource type="Script" uid="uid://ciyxg3w7be8j6" path="res://scenes/ui/health_ui.gd" id="1_fht25"]
-[ext_resource type="Texture2D" uid="uid://d0edy7thj8ce6" path="res://art/heart.png" id="1_hdb0t"]
-[ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="3_r7myk"]
+[ext_resource type="Texture2D" uid="uid://dfbcf202x1ss1" path="res://art/art_test/basic_icons/intents_health_connection.png" id="2_fht25"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="3_r7myk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ede18"]
 font = ExtResource("3_r7myk")
-font_size = 6
+font_size = 52
 
 [node name="HealthUI" type="HBoxContainer"]
-theme_override_constants/separation = 2
+theme_override_constants/separation = 18
 script = ExtResource("1_fht25")
 
 [node name="HealthImage" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
-texture = ExtResource("1_hdb0t")
+texture = ExtResource("2_fht25")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="HealthLabel" type="Label" parent="."]

@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://bjx4w5y78i051" path="res://scenes/card_target_selector/card_target_selector.gd" id="1_s6vcj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m1is"]
-size = Vector2(4, 4)
 
 [node name="CardTargetSelector" type="Node2D"]
 script = ExtResource("1_s6vcj")

@@ -1,7 +1,8 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://khyscqqmwjts"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://khyscqqmwjts"]
 
 [ext_resource type="StyleBox" uid="uid://63lr4byiifql" path="res://scenes/card_ui/card_hover_stylebox.tres" id="1_0omi4"]
 [ext_resource type="FontFile" uid="uid://dskmdk146n4rq" path="res://art/pixel_rpg.ttf" id="1_4d7le"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="1_58jnp"]
 [ext_resource type="StyleBox" uid="uid://chu6y2qtq4562" path="res://scenes/card_ui/card_base_stylebox.tres" id="1_a2l2q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58jnp"]
@@ -25,6 +26,7 @@ border_color = Color(0.874193, 0.737723, 0.40879, 1)
 [resource]
 default_font = ExtResource("1_4d7le")
 default_font_size = 6
+Button/fonts/font = ExtResource("1_58jnp")
 Button/styles/disabled = SubResource("StyleBoxFlat_58jnp")
 Button/styles/focus = SubResource("StyleBoxEmpty_466ly")
 Button/styles/hover = ExtResource("1_0omi4")

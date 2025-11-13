@@ -29,6 +29,33 @@ damping_max = 5.0
 color = Color(1, 1, 1, 0.921569)
 color_ramp = SubResource("GradientTexture1D_6jn8c")
 
+[sub_resource type="Animation" id="Animation_mn6fe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_gkj16"]
 resource_name = "idle"
 length = 1.4
@@ -56,33 +83,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(2, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.784314), Color(1, 1, 1, 1), Color(1, 1, 1, 0.784314)]
-}
-
-[sub_resource type="Animation" id="Animation_mn6fe"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8auyv"]
@@ -117,7 +117,7 @@ metadata/_edit_use_anchors_ = true
 [node name="ParticlesLayer" type="CanvasLayer" parent="."]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="ParticlesLayer"]
-position = Vector2(127, 65)
+position = Vector2(955, 537)
 amount = 80
 texture = ExtResource("2_1466h")
 lifetime = 0.8

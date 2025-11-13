@@ -1,22 +1,22 @@
 [gd_scene load_steps=7 format=3 uid="uid://dfpl55viqts3e"]
 
 [ext_resource type="Script" uid="uid://4x8caeu1vvpy" path="res://scenes/artifact_handler/artifact_handler.gd" id="1_abt81"]
-[ext_resource type="Texture2D" uid="uid://wrnwpdomtt2e" path="res://art/arrow_right_short_enabled.png" id="1_xishf"]
-[ext_resource type="Texture2D" uid="uid://l7qxnpdwg13q" path="res://art/arrow_right_short_disabled.png" id="2_qklxk"]
+[ext_resource type="Texture2D" uid="uid://wrnwpdomtt2e" path="res://art/art_test/arrow_right_short_enabled.png" id="1_xishf"]
+[ext_resource type="Texture2D" uid="uid://l7qxnpdwg13q" path="res://art/art_test/arrow_right_short_disabled.png" id="2_qklxk"]
 [ext_resource type="Script" uid="uid://08etak6tc631" path="res://scenes/artifact_handler/artifacts_control.gd" id="3_0cpy0"]
 [ext_resource type="PackedScene" uid="uid://d2orfl107kf37" path="res://scenes/artifact_handler/artifact_ui.tscn" id="4_s8wm8"]
 [ext_resource type="Resource" uid="uid://cbr5oda8ied4r" path="res://artifacts/code_discount.tres" id="6_abt81"]
 
 [node name="ArtifactHandler" type="HBoxContainer"]
-custom_minimum_size = Vector2(180, 20)
-offset_right = 180.0
-offset_bottom = 20.0
+custom_minimum_size = Vector2(1000, 100)
+offset_right = 1024.0
+offset_bottom = 100.0
 script = ExtResource("1_abt81")
 
 [node name="LeftButton" type="TextureButton" parent="."]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.27451)
-custom_minimum_size = Vector2(16, 16)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("1_xishf")
@@ -29,7 +29,7 @@ flip_h = true
 
 [node name="ArtifactsControl" type="Control" parent="." node_paths=PackedStringArray("left_button", "right_button")]
 clip_contents = true
-custom_minimum_size = Vector2(164, 20)
+custom_minimum_size = Vector2(888, 120)
 layout_mode = 2
 script = ExtResource("3_0cpy0")
 left_button = NodePath("../LeftButton")
@@ -39,8 +39,9 @@ right_button = NodePath("../RightButton")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 20)
 layout_mode = 0
-offset_right = 140.0
-offset_bottom = 20.0
+offset_right = 2040.0
+offset_bottom = 120.0
+theme_override_constants/separation = 8
 
 [node name="ArtifactUI" parent="ArtifactsControl/Artifacts" instance=ExtResource("4_s8wm8")]
 layout_mode = 2
@@ -93,7 +94,7 @@ layout_mode = 2
 
 [node name="RightButton" type="TextureButton" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(16, 16)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("1_xishf")

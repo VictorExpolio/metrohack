@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://kqb5uyf2ud1x"]
+[gd_scene load_steps=7 format=3 uid="uid://kqb5uyf2ud1x"]
 
 [ext_resource type="Script" uid="uid://cr32cnu5rgd11" path="res://scenes/artifact_handler/artifact_tooltip.gd" id="1_5ei6s"]
 [ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="3_1er4v"]
-[ext_resource type="Texture2D" uid="uid://cg1a3jk6tsa8f" path="res://art/More_kenney/tile_0028.png" id="3_b25sr"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="3_3i533"]
+[ext_resource type="Texture2D" uid="uid://degd7uqm0mvym" path="res://art/art_test/artifacts/artifacts_icons.png" id="4_ptbip"]
+[ext_resource type="FontFile" uid="uid://duch85xepkhjp" path="res://art/art_test/fonts/spline_text/SplineSansMono-Medium.ttf" id="5_433l6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sobtc"]
-font_size = 12
+font = ExtResource("3_3i533")
+font_size = 52
 font_color = Color(0.341176, 1, 1, 1)
 
 [node name="ArtifactTooltip" type="Control"]
@@ -32,10 +35,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 22.0
-offset_top = 25.0
-offset_right = -18.0
-offset_bottom = -23.0
+offset_left = 497.0
+offset_top = 300.0
+offset_right = -443.0
+offset_bottom = -251.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -47,10 +50,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 30.0
-offset_top = 46.0
-offset_right = -158.0
-offset_bottom = -30.0
+offset_left = 607.0
+offset_top = 416.0
+offset_right = -1073.0
+offset_bottom = -424.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -63,13 +66,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -97.0
-offset_top = -42.0
-offset_right = 97.0
-offset_bottom = 42.0
+offset_left = -334.0
+offset_top = -198.0
+offset_right = 406.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 6
+theme_override_constants/separation = 32
 
 [node name="ArtifactTitle" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
@@ -82,27 +85,29 @@ horizontal_alignment = 1
 [node name="VBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 60
 
 [node name="ArtifactIcon" type="TextureRect" parent="VBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(68, 68)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-texture = ExtResource("3_b25sr")
+texture = ExtResource("4_ptbip")
 expand_mode = 1
 stretch_mode = 3
 
 [node name="VBoxTextsContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(120, 0)
+custom_minimum_size = Vector2(480, 120)
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 24
 
 [node name="ArtifactDescription" type="RichTextLabel" parent="VBoxContainer/VBoxContainer2/VBoxTextsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme = ExtResource("3_1er4v")
+theme_override_fonts/normal_font = ExtResource("5_433l6")
+theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "Card 001 Description1122 Card Description Card Description177Card Description
 "
@@ -113,6 +118,8 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme = ExtResource("3_1er4v")
+theme_override_fonts/normal_font = ExtResource("5_433l6")
+theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
 text = "Card 001 Description1122 Card Description Card Description177Card Description
 "
@@ -120,17 +127,19 @@ fit_content = true
 
 [node name="BackButton" type="Button" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(36, 12)
+custom_minimum_size = Vector2(220, 60)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -55.0
-offset_top = 7.0
-offset_right = -19.0
-offset_bottom = 19.0
+offset_left = -604.0
+offset_top = 212.0
+offset_right = -444.0
+offset_bottom = 272.0
 grow_horizontal = 0
 theme = ExtResource("3_1er4v")
+theme_override_fonts/font = ExtResource("3_3i533")
+theme_override_font_sizes/font_size = 36
 text = "Back"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

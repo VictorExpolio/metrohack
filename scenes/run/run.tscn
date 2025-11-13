@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2nv4d01l2d6w"]
+[gd_scene load_steps=14 format=3 uid="uid://d2nv4d01l2d6w"]
 
 [ext_resource type="PackedScene" uid="uid://ctnufymutt482" path="res://scenes/map/map.tscn" id="1_l7o68"]
 [ext_resource type="Script" uid="uid://b1ptcjp5qdris" path="res://scenes/run/run.gd" id="1_wdonh"]
@@ -7,10 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://cin1q77wcxwsp" path="res://scenes/ui/card_pile_opener.tscn" id="5_0tt4g"]
 [ext_resource type="PackedScene" uid="uid://di8rack5ubinl" path="res://scenes/ui/health_ui.tscn" id="5_ux63y"]
 [ext_resource type="PackedScene" uid="uid://ccg7tfjvsmqv8" path="res://scenes/ui/money_ui.tscn" id="5_wo0nw"]
-[ext_resource type="Texture2D" uid="uid://c2vj2hwu4aert" path="res://art/card_blank_fulldeck.png" id="6_wo0nw"]
+[ext_resource type="Texture2D" uid="uid://cpox3g6kqx5u7" path="res://art/art_test/buttons/Deck_button_140.png" id="7_cnkn7"]
 [ext_resource type="PackedScene" uid="uid://brb278qln4gb4" path="res://scenes/ui/card_pile_view.tscn" id="7_ux63y"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="8_7yo0l"]
 [ext_resource type="PackedScene" uid="uid://dfpl55viqts3e" path="res://scenes/artifact_handler/artifact_handler.tscn" id="9_yeia0"]
 [ext_resource type="PackedScene" uid="uid://kqb5uyf2ud1x" path="res://scenes/artifact_handler/artifact_tooltip.tscn" id="11_g42ja"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fo0ly"]
+font = ExtResource("8_7yo0l")
+font_size = 64
 
 [node name="Run" type="Node"]
 script = ExtResource("1_wdonh")
@@ -73,56 +78,64 @@ text = "Campfire"
 layer = 2
 
 [node name="Background" type="ColorRect" parent="TopBar"]
-custom_minimum_size = Vector2(0, 16)
+custom_minimum_size = Vector2(0, 160)
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 color = Color(0.282353, 0.235294, 0.333333, 0.886275)
 
+[node name="HealthUI" parent="TopBar" instance=ExtResource("5_ux63y")]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -288.0
+offset_top = 177.0
+offset_right = -33.0
+offset_bottom = 257.0
+grow_horizontal = 0
+show_max_health = true
+
 [node name="BarItems" type="HBoxContainer" parent="TopBar"]
 custom_minimum_size = Vector2(0, 16)
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 3.0
-offset_right = -3.0
-offset_bottom = 17.0
+offset_left = 1421.0
+offset_top = -22.0
+offset_right = -51.0
+offset_bottom = 178.0
 grow_horizontal = 2
+theme_override_constants/separation = 51
 
-[node name="HealthUI" parent="TopBar/BarItems" instance=ExtResource("5_ux63y")]
+[node name="DeckButton" parent="TopBar/BarItems" node_paths=PackedStringArray("counter") instance=ExtResource("5_0tt4g")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-show_max_health = true
+texture_normal = ExtResource("7_cnkn7")
+stretch_mode = 3
+counter = NodePath("DeckCounter")
+
+[node name="DeckCounter" type="Label" parent="TopBar/BarItems/DeckButton"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = 110.0
+offset_right = 56.0
+offset_bottom = 194.0
+theme = ExtResource("2_wdonh")
+text = "59"
+label_settings = SubResource("LabelSettings_fo0ly")
+horizontal_alignment = 1
 
 [node name="MoneyUI" parent="TopBar/BarItems" instance=ExtResource("5_wo0nw")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Placeholder" type="Control" parent="TopBar/BarItems"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="DeckButton" parent="TopBar/BarItems" node_paths=PackedStringArray("counter") instance=ExtResource("5_0tt4g")]
-custom_minimum_size = Vector2(6, 8)
-layout_mode = 2
-texture_normal = ExtResource("6_wo0nw")
-counter = NodePath("DeckCounter")
-
-[node name="DeckCounter" type="Label" parent="TopBar/BarItems/DeckButton"]
-layout_mode = 0
-offset_left = -3.0
-offset_top = 15.0
-offset_right = 7.0
-offset_bottom = 21.0
-theme = ExtResource("2_wdonh")
-text = "59"
-horizontal_alignment = 1
-
 [node name="ArtifactHandler" parent="TopBar" instance=ExtResource("9_yeia0")]
 unique_name_in_owner = true
 offset_left = 41.0
-offset_top = 17.0
-offset_right = 245.0
-offset_bottom = 37.0
+offset_top = 30.0
+offset_right = 1065.0
+offset_bottom = 130.0
 
 [node name="DeckViewPile" type="CanvasLayer" parent="TopBar"]
 layer = 4

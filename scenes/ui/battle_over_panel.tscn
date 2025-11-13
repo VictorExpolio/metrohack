@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://fbjpfdknlaau"]
+[gd_scene load_steps=6 format=3 uid="uid://fbjpfdknlaau"]
 
 [ext_resource type="Script" uid="uid://dx5va6v2ib3ht" path="res://scenes/ui/battle_over_panel.gd" id="1_5h67t"]
 [ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="1_dna7b"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="3_qotfm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h67t"]
-bg_color = Color(0.227451, 0.243137, 0.305882, 0.682353)
+bg_color = Color(0.207843, 0.219608, 0.431373, 0.47451)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qotfm"]
-font_size = 24
+font = ExtResource("3_qotfm")
+font_size = 96
 
 [node name="BattleOverPanel" type="Panel"]
 process_mode = 3
@@ -32,6 +34,7 @@ offset_right = 54.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 24
 
 [node name="ResultLabel" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
@@ -44,18 +47,20 @@ vertical_alignment = 1
 
 [node name="ContinueButton" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 12)
+custom_minimum_size = Vector2(280, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_dna7b")
+theme_override_font_sizes/font_size = 24
 text = "Rewards"
 
 [node name="RestartButton" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 12)
+custom_minimum_size = Vector2(280, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_dna7b")
+theme_override_font_sizes/font_size = 24
 text = "Restart"
 
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

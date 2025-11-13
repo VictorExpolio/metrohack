@@ -1,6 +1,6 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cbr5oda8ied4r"]
+[gd_resource type="Resource" script_class="CodeDiscount" load_steps=3 format=3 uid="uid://cbr5oda8ied4r"]
 
-[ext_resource type="Texture2D" uid="uid://7mbfdeae08df" path="res://art/More_kenney/tile_0029.png" id="1_amysc"]
+[ext_resource type="Texture2D" uid="uid://bprottusj8qss" path="res://art/art_test/artifacts/artifacts_discount.png" id="1_amysc"]
 [ext_resource type="Script" uid="uid://cxvnt0hxlroju" path="res://artifacts/code_discount.gd" id="2_amysc"]
 
 [resource]

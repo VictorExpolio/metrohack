@@ -1,32 +1,38 @@
 [gd_scene load_steps=6 format=3 uid="uid://c73lj5se6c1yr"]
 
-[ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="1_08kyh"]
-[ext_resource type="Texture2D" uid="uid://oe7v35ii8vrs" path="res://art/tile_0102.png" id="2_3ktwi"]
+[ext_resource type="Texture2D" uid="uid://dn377qcnvom3d" path="res://art/art_test/basic_icons/intents_shield.png" id="2_3ktwi"]
 [ext_resource type="Script" uid="uid://bheg17gexj0fj" path="res://scenes/ui/stats_ui.gd" id="2_7klq2"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="3_7klq2"]
 [ext_resource type="PackedScene" uid="uid://di8rack5ubinl" path="res://scenes/ui/health_ui.tscn" id="4_3ktwi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7klq2"]
-font_size = 6
+font = ExtResource("3_7klq2")
+font_size = 52
 
 [node name="StatsUI" type="HBoxContainer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -45.0
-offset_right = 45.0
+offset_right = 12.0
 offset_bottom = 16.0
 grow_horizontal = 2
-theme = ExtResource("1_08kyh")
+theme_override_constants/separation = 32
 alignment = 1
 script = ExtResource("2_7klq2")
 
+[node name="Health" parent="." instance=ExtResource("4_3ktwi")]
+layout_mode = 2
+
 [node name="Block" type="HBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = 12
 
 [node name="BlockImage" type="TextureRect" parent="Block"]
+custom_minimum_size = Vector2(64, 40)
 layout_mode = 2
 texture = ExtResource("2_3ktwi")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="BlockLabel" type="Label" parent="Block"]
@@ -37,6 +43,3 @@ text = "6"
 label_settings = SubResource("LabelSettings_7klq2")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Health" parent="." instance=ExtResource("4_3ktwi")]
-layout_mode = 2

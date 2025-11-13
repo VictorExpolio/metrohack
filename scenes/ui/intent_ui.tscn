@@ -1,24 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqux42mxpos8k"]
 
 [ext_resource type="Script" uid="uid://kr4t1ekx0omn" path="res://scenes/ui/intent_ui.gd" id="1_rdgft"]
-[ext_resource type="Texture2D" uid="uid://c6rme2o6dyaoj" path="res://art/tile_0104.png" id="1_sg8ul"]
-[ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="2_rdgft"]
+[ext_resource type="Texture2D" uid="uid://b2j0jwdqmval6" path="res://art/art_test/basic_icons/intents_damage.png" id="2_rdgft"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="3_jvjc4"]
 
 [node name="IntentUI" type="HBoxContainer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -12.0
-offset_right = 12.0
-offset_bottom = 16.0
+offset_left = -24.0
+offset_right = 131.0
+offset_bottom = 111.0
 grow_horizontal = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = 20
 script = ExtResource("1_rdgft")
 
 [node name="Icon" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(12, 12)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("1_sg8ul")
+texture = ExtResource("2_rdgft")
 expand_mode = 1
 stretch_mode = 5
 
@@ -26,7 +26,7 @@ stretch_mode = 5
 custom_minimum_size = Vector2(12, 12)
 layout_mode = 2
 size_flags_vertical = 1
-theme = ExtResource("2_rdgft")
-theme_override_font_sizes/font_size = 8
+theme_override_fonts/font = ExtResource("3_jvjc4")
+theme_override_font_sizes/font_size = 84
 text = "6"
 vertical_alignment = 1

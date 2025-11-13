@@ -1,17 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://rwmp6414ioiv"]
+[gd_scene load_steps=9 format=3 uid="uid://rwmp6414ioiv"]
 
 [ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="1_o25d0"]
 [ext_resource type="Script" uid="uid://cdyw7nod5ogfm" path="res://scenes/shop/shop_artifact.gd" id="1_oba1r"]
-[ext_resource type="Texture2D" uid="uid://crqlow1y5nhad" path="res://art/money.png" id="2_03ltk"]
 [ext_resource type="Resource" uid="uid://b2fkw085sl0io" path="res://artifacts/explosive_chip.tres" id="2_axe3y"]
 [ext_resource type="PackedScene" uid="uid://d2orfl107kf37" path="res://scenes/artifact_handler/artifact_ui.tscn" id="2_wrpmr"]
 [ext_resource type="Resource" uid="uid://bc8ohhy6xrxf8" path="res://artifacts/block_antenna.tres" id="3_wrpmr"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="6_fa1dj"]
+[ext_resource type="Texture2D" uid="uid://bfk3tjapylrah" path="res://art/art_test/basic_icons/money_redux.png" id="7_skuus"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_44rx0"]
+font = ExtResource("6_fa1dj")
+font_size = 48
 
 [node name="ShopArtifact" type="VBoxContainer"]
 custom_minimum_size = Vector2(40, 46)
 offset_right = 40.0
 offset_bottom = 40.0
-theme_override_constants/separation = 4
+theme_override_constants/separation = 20
 script = ExtResource("1_oba1r")
 artifact = ExtResource("2_axe3y")
 
@@ -20,6 +25,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="ArtifactUI" parent="ArtifactContainer" instance=ExtResource("2_wrpmr")]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 artifact = ExtResource("3_wrpmr")
 
@@ -33,18 +39,20 @@ unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_o25d0")
 text = "999"
+label_settings = SubResource("LabelSettings_44rx0")
 
 [node name="Moneyicon" type="TextureRect" parent="Price"]
-custom_minimum_size = Vector2(8, 6)
+custom_minimum_size = Vector2(40, 32)
 layout_mode = 2
-texture = ExtResource("2_03ltk")
-expand_mode = 1
+texture = ExtResource("7_skuus")
+expand_mode = 3
 
 [node name="BuyButton" type="Button" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 12)
+custom_minimum_size = Vector2(240, 60)
 layout_mode = 2
 theme = ExtResource("1_o25d0")
+theme_override_font_sizes/font_size = 24
 text = "Buy Card"
 
 [connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

@@ -1,17 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://f3qiodcw2lju"]
+[gd_scene load_steps=6 format=3 uid="uid://f3qiodcw2lju"]
 
 [ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="1_labvs"]
 [ext_resource type="Script" uid="uid://q50yu0doid4w" path="res://scenes/ui/mana_ui.gd" id="2_bgy5i"]
 [ext_resource type="Resource" uid="uid://sygadfnlild3" path="res://characters/warrior/warrior.tres" id="3_mbydp"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="4_slxna"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q3b73"]
+font = ExtResource("4_slxna")
+font_size = 34
 
 [node name="ManaUI" type="Panel"]
+custom_minimum_size = Vector2(120, 60)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = -28.0
-offset_right = 32.0
-offset_bottom = -8.0
+offset_left = 500.0
+offset_top = -512.0
+offset_right = 620.0
+offset_bottom = -452.0
 grow_vertical = 0
 theme = ExtResource("1_labvs")
 script = ExtResource("2_bgy5i")
@@ -25,5 +31,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "5/5"
+label_settings = SubResource("LabelSettings_q3b73")
 horizontal_alignment = 1
 vertical_alignment = 1

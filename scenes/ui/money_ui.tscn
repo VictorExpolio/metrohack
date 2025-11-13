@@ -1,19 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccg7tfjvsmqv8"]
+[gd_scene load_steps=6 format=3 uid="uid://ccg7tfjvsmqv8"]
 
-[ext_resource type="Texture2D" uid="uid://crqlow1y5nhad" path="res://art/money.png" id="1_8i10r"]
 [ext_resource type="Script" uid="uid://dkgepuil7l7ne" path="res://scenes/ui/money_ui.gd" id="1_ih046"]
+[ext_resource type="Texture2D" uid="uid://bfk3tjapylrah" path="res://art/art_test/basic_icons/money_redux.png" id="2_7snt4"]
 [ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="2_ih046"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="4_sknih"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_khelc"]
+font = ExtResource("4_sknih")
+font_size = 42
 
 [node name="MoneyUI" type="HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 offset_right = 40.0
 offset_bottom = 12.0
+theme_override_constants/separation = 16
 script = ExtResource("1_ih046")
 
 [node name="Icon" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(16, 12)
+custom_minimum_size = Vector2(120, 90)
 layout_mode = 2
-texture = ExtResource("1_8i10r")
+texture = ExtResource("2_7snt4")
 expand_mode = 1
 stretch_mode = 5
 
@@ -22,4 +28,5 @@ layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("2_ih046")
 text = "9090"
+label_settings = SubResource("LabelSettings_khelc")
 vertical_alignment = 1

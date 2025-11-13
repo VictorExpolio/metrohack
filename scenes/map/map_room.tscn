@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://cu6adob06oat8"]
 
 [ext_resource type="Script" uid="uid://17buh4bwmfmq" path="res://scenes/map/map_room.gd" id="1_gyfd6"]
-[ext_resource type="Texture2D" uid="uid://b8bq77uq4fif2" path="res://art/tile_0124.png" id="1_hwhxx"]
+[ext_resource type="Texture2D" uid="uid://dgcd6gmdxg4l4" path="res://art/art_test/map_icons/stations_icon_battle.png" id="2_gyfd6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gyfd6"]
-radius = 11.0
+radius = 104.077
 
 [sub_resource type="Animation" id="Animation_w2n1o"]
 length = 0.001
@@ -97,12 +97,13 @@ script = ExtResource("1_gyfd6")
 
 [node name="Line2D" type="Line2D" parent="Visuals"]
 modulate = Color(0.494118, 0.596078, 0.596078, 0)
+position = Vector2(0.999993, 1.00001)
+scale = Vector2(8.1875, 8.1875)
 points = PackedVector2Array(14, 8, 14, -8, 0, -14, -14, -8, -14, 8, 0, 14)
 closed = true
-width = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
-texture = ExtResource("1_hwhxx")
+texture = ExtResource("2_gyfd6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

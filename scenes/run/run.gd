@@ -16,7 +16,7 @@ const EVENT_SCENE = preload("res://scenes/shop/shop.tscn")
 
 @onready var current_view: Node = $CurrentView
 
-@onready var deck_button: CardPileOpener = $TopBar/BarItems/DeckButton
+@onready var deck_button: CardPileOpener = %DeckButton
 #@onready var deck_pile_view: CardPileView = $TopBar/DeckPileView
 @onready var deck_pile_view: CardPileView = %DeckPileView
 @onready var artifact_handler: ArtifactHandler = %ArtifactHandler

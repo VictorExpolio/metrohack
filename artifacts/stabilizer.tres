@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://1m2scb1y085e"]
 
-[ext_resource type="Texture2D" uid="uid://dnuyr86qbhw0r" path="res://art/More_kenney/tile_0024.png" id="1_il0hy"]
+[ext_resource type="Texture2D" uid="uid://d2fxdl3xqer75" path="res://art/art_test/artifacts/artifacts_healing.png" id="1_il0hy"]
 [ext_resource type="Script" uid="uid://bam1ekn3xv0bt" path="res://artifacts/stablizer.gd" id="2_il0hy"]
 
 [resource]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://bc8ohhy6xrxf8"]
 
-[ext_resource type="Texture2D" uid="uid://cg1a3jk6tsa8f" path="res://art/More_kenney/tile_0028.png" id="1_n4prq"]
+[ext_resource type="Texture2D" uid="uid://degd7uqm0mvym" path="res://art/art_test/artifacts/artifacts_icons.png" id="1_n4prq"]
 [ext_resource type="Script" uid="uid://cfrkfspkbhh1n" path="res://artifacts/block_antenna.gd" id="2_n4prq"]
 
 [resource]

@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://brb278qln4gb4"]
+[gd_scene load_steps=7 format=3 uid="uid://brb278qln4gb4"]
 
 [ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="1_bd0ix"]
 [ext_resource type="Script" uid="uid://bve53n1ebn4ss" path="res://scenes/ui/card_pile_view.gd" id="1_vf8oq"]
 [ext_resource type="PackedScene" uid="uid://cn5t6b45d5nwj" path="res://scenes/ui/card_menu_ui.tscn" id="2_5fd14"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="3_pgvdt"]
 [ext_resource type="PackedScene" uid="uid://cqth2eyt5mj4e" path="res://scenes/ui/card_tooltip_popup.tscn" id="4_pgvdt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vf8oq"]
-font_size = 14
+font = ExtResource("3_pgvdt")
+font_size = 64
 
 [node name="CardPileView" type="Control"]
 layout_mode = 3
@@ -31,16 +33,17 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -68.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
+theme_override_constants/margin_top = 28
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 4
+theme_override_constants/separation = 20
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -62,7 +65,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 8
+theme_override_constants/v_separation = 28
 columns = 6
 
 [node name="CardMenuUI" parent="MarginContainer/VBoxContainer/ScrollContainer/CardGrid" instance=ExtResource("2_5fd14")]
@@ -127,17 +130,18 @@ layout_mode = 2
 
 [node name="BackButton" type="Button" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(24, 16)
+custom_minimum_size = Vector2(100, 16)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -51.0
-offset_top = 9.0
-offset_right = -15.0
-offset_bottom = 25.0
+offset_left = -243.0
+offset_top = 25.0
+offset_right = -63.0
+offset_bottom = 105.0
 grow_horizontal = 0
 theme = ExtResource("1_bd0ix")
+theme_override_font_sizes/font_size = 42
 text = "Back"
 
 [node name="CardTooltipPopup" parent="." instance=ExtResource("4_pgvdt")]
