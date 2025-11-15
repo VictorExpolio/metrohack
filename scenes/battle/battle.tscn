@@ -43,7 +43,7 @@ battle_music = ExtResource("3_n6gaa")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
-modulate = Color(0.400583, 0.369509, 0.446024, 1)
+modulate = Color(0.910851, 0.87006, 0.928384, 1)
 texture = ExtResource("4_5moxy")
 centered = false
 
@@ -59,15 +59,15 @@ debug_color = Color(0, 0.6, 0.701961, 0.188235)
 script = ExtResource("4_kd6yx")
 
 [node name="BatEnemy" parent="EnemyHandler" instance=ExtResource("2_agsc7")]
-position = Vector2(1232, 448)
+position = Vector2(1208, 371)
 stats = ExtResource("8_mvulk")
 
 [node name="CrabEnemy" parent="EnemyHandler" instance=ExtResource("2_agsc7")]
-position = Vector2(668, 434)
+position = Vector2(666, 376)
 stats = ExtResource("5_icoan")
 
 [node name="Player" parent="." instance=ExtResource("3_agsc7")]
-position = Vector2(440, 737)
+position = Vector2(374, 721)
 
 [node name="CardTargetSelector" parent="." instance=ExtResource("3_pll4o")]
 
@@ -86,8 +86,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -800.0
-offset_top = -320.0
+offset_top = -302.0
 offset_right = 800.0
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
@@ -96,17 +97,16 @@ player = NodePath("../../Player")
 
 [node name="ManaUI" parent="BattleUI" instance=ExtResource("10_oiw7q")]
 custom_minimum_size = Vector2(140, 80)
-offset_left = 120.0
-offset_top = -514.0
-offset_right = 260.0
-offset_bottom = -434.0
+offset_left = 51.0
+offset_top = -527.0
+offset_right = 191.0
+offset_bottom = -447.0
 
 [node name="Tooltip" parent="BattleUI" instance=ExtResource("12_mxe8n")]
-visible = false
-offset_left = -286.0
-offset_top = -26.0
-offset_right = 294.0
-offset_bottom = 174.0
+offset_left = -915.0
+offset_top = -367.0
+offset_right = -635.0
+offset_bottom = -7.0
 
 [node name="EndTurnButton" type="Button" parent="BattleUI"]
 unique_name_in_owner = true

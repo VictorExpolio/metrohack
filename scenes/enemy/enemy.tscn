@@ -17,7 +17,7 @@ collision_layer = 4
 script = ExtResource("1_tjssy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(0, -27)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_13gj6")
 
@@ -27,15 +27,15 @@ position = Vector2(1, -11)
 texture = ExtResource("3_4efjx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(0, -28)
 shape = SubResource("RectangleShape2D_pll4o")
 debug_color = Color(0.85098, 0.364706, 0.243137, 0.227451)
 
 [node name="StatsUI" parent="." instance=ExtResource("3_tjssy")]
-offset_left = -184.0
-offset_top = 138.0
-offset_right = 186.0
-offset_bottom = 210.0
+offset_left = -205.0
+offset_top = 100.0
+offset_right = 181.0
+offset_bottom = 172.0
 
 [node name="IntentUI" parent="." instance=ExtResource("5_gl05p")]
 offset_left = -41.0
@@ -44,10 +44,10 @@ offset_right = 114.0
 offset_bottom = -147.0
 
 [node name="StatusHandler" parent="." node_paths=PackedStringArray("status_owner") instance=ExtResource("6_cwlon")]
-offset_left = -149.0
-offset_top = 217.0
-offset_right = -149.0
-offset_bottom = 217.0
+offset_left = -194.0
+offset_top = 152.0
+offset_right = -194.0
+offset_bottom = 152.0
 columns = 6
 status_owner = NodePath("..")
 

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dyd1dhcqalmb8"]
+
+[ext_resource type="Texture2D" uid="uid://gc437jhnm1ab" path="res://art/art_test/cards/just_art/card_BLOCKDOS_art.png" id="1_8tjc7"]
+[ext_resource type="Script" uid="uid://cur3o7qapmunx" path="res://characters/warrior/cards/panic_button.gd" id="2_dvkrb"]
+
+[resource]
+script = ExtResource("2_dvkrb")
+id = "panic_button"
+type = 1
+rarity = 2
+target = 0
+cost = 3
+trashes = false
+credit_cost = 0
+money_cost = 0
+icon = ExtResource("1_8tjc7")
+tooltip_text = "[center] Blocks [color=\"ff0000\"]%s[/color] . Apply 3 [color=\"ff0000\"]Exposed[/color] to player[/center]"
+metadata/_custom_type_script = "uid://0podk2kml57o"

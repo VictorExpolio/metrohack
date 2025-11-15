@@ -15,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0265934, 0.0169326, 0.0721508, 0.831373)
+color = Color(0.952941, 0.486275, 0.454902, 0.129412)
 script = ExtResource("1_gx0x2")
 rewards = Array[ExtResource("2_14wmn")]([ExtResource("3_27adq"), ExtResource("4_etycs"), ExtResource("5_opbjd")])
 
@@ -26,18 +26,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -41.5
-offset_top = -20.0
-offset_right = 41.5
-offset_bottom = 20.0
+offset_left = -408.0
+offset_top = -181.0
+offset_right = 408.0
+offset_bottom = 259.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 48
 
 [node name="Cards" type="HBoxContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 48
 
 [node name="CardMenuUI" parent="VBoxContainer/Cards" instance=ExtResource("1_chmpv")]
 layout_mode = 2
@@ -50,10 +50,11 @@ layout_mode = 2
 
 [node name="SkipCardRewards" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(36, 12)
+custom_minimum_size = Vector2(240, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_cak6g")
+theme_override_font_sizes/font_size = 36
 text = "Skip"
 
 [node name="CardTooltipPopup" parent="." instance=ExtResource("3_0y8k5")]
@@ -62,18 +63,19 @@ layout_mode = 1
 
 [node name="TakeButtton" type="Button" parent="CardTooltipPopup"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(36, 12)
+custom_minimum_size = Vector2(240, 80)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -18.0
-offset_top = -32.0
-offset_right = 18.0
-offset_bottom = -20.0
+offset_left = -120.0
+offset_top = -357.0
+offset_right = 120.0
+offset_bottom = -277.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_cak6g")
+theme_override_font_sizes/font_size = 36
 text = "Take"

@@ -17,7 +17,7 @@ offset_left = -45.0
 offset_right = 12.0
 offset_bottom = 16.0
 grow_horizontal = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 40
 alignment = 1
 script = ExtResource("2_7klq2")
 
@@ -25,8 +25,9 @@ script = ExtResource("2_7klq2")
 layout_mode = 2
 
 [node name="Block" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(118, 72)
 layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 20
 
 [node name="BlockImage" type="TextureRect" parent="Block"]
 custom_minimum_size = Vector2(64, 40)

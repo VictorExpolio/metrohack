@@ -4,7 +4,7 @@
 
 [node name="StatusHandler" type="GridContainer"]
 mouse_filter = 0
-theme_override_constants/h_separation = 2
+theme_override_constants/h_separation = 12
 theme_override_constants/v_separation = 2
 columns = 5
 script = ExtResource("1_7of5l")

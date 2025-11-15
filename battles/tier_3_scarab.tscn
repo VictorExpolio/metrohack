@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://chap106vgfaba"]
+
+[ext_resource type="PackedScene" uid="uid://d1o24dm7p5l82" path="res://scenes/enemy/enemy.tscn" id="1_0e3cw"]
+[ext_resource type="Resource" uid="uid://cntm7vh3bwjyf" path="res://enemies/scarab/scarab_enemy.tres" id="2_0e3cw"]
+
+[node name="Tier3Scarab" type="Node2D"]
+
+[node name="Enemy" parent="." instance=ExtResource("1_0e3cw")]
+position = Vector2(960, 400)
+stats = ExtResource("2_0e3cw")

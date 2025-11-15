@@ -13,7 +13,7 @@ font = ExtResource("6_fa1dj")
 font_size = 48
 
 [node name="ShopArtifact" type="VBoxContainer"]
-custom_minimum_size = Vector2(40, 46)
+custom_minimum_size = Vector2(240, 364)
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/separation = 20

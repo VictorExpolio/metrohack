@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://fskj2oecplaa"]
+
+[ext_resource type="Texture2D" uid="uid://dtd45ay37meka" path="res://art/art_test/cards/just_art/card_ESCAPE_art.png" id="1_8a8l1"]
+[ext_resource type="Script" uid="uid://qsclj21kokh6" path="res://characters/warrior/cards/escape_route.gd" id="2_8a8l1"]
+
+[resource]
+script = ExtResource("2_8a8l1")
+id = "escape_route"
+type = 1
+rarity = 1
+target = 0
+cost = 2
+trashes = true
+credit_cost = 0
+money_cost = 0
+icon = ExtResource("1_8a8l1")
+tooltip_text = "[center] Blocks [color=\"ff0000\"]%s[/color]  TRASHES[/center]"
+metadata/_custom_type_script = "uid://0podk2kml57o"

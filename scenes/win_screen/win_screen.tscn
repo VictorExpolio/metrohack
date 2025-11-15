@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://cgxhyqengsn0y"]
+
+[ext_resource type="Script" uid="uid://wdlqvrgy41b5" path="res://scenes/win_screen/win_screen.gd" id="1_8vb36"]
+[ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="3_tm2bo"]
+[ext_resource type="FontFile" uid="uid://duch85xepkhjp" path="res://art/art_test/fonts/spline_text/SplineSansMono-Medium.ttf" id="4_bsdxc"]
+[ext_resource type="Texture2D" uid="uid://dmo3kff7hvqb4" path="res://art/art_test/player_tool/Player_terminal_PORTRAIT.png" id="6_sw20m"]
+
+[sub_resource type="Gradient" id="Gradient_m1kxf"]
+offsets = PackedFloat32Array(0, 0.270992, 0.851145, 1)
+colors = PackedColorArray(0.550949, 0.669489, 0.850327, 1, 0.569588, 0.706386, 0.784958, 1, 0.567155, 0.455891, 0.716736, 1, 0.404651, 0.237356, 0.52027, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x2yvf"]
+gradient = SubResource("Gradient_m1kxf")
+
+[sub_resource type="LabelSettings" id="LabelSettings_uhagc"]
+font_size = 96
+shadow_size = 2
+shadow_color = Color(0.225898, 0.155582, 0.338307, 0.6)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0gu3w"]
+font = ExtResource("4_bsdxc")
+font_size = 32
+shadow_size = 2
+shadow_color = Color(0.225898, 0.155582, 0.338307, 0.6)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1d1ta"]
+font_size = 48
+
+[node name="WinScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8vb36")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_x2yvf")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 298.0
+offset_right = 1221.0
+offset_bottom = 491.0
+theme_override_constants/separation = 28
+
+[node name="ToolTitle" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_tm2bo")
+text = "first boss DECRYPTED:"
+label_settings = SubResource("LabelSettings_uhagc")
+vertical_alignment = 1
+
+[node name="ToolDescription" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_tm2bo")
+text = "More updates coming to \"See Ya at the Metro\""
+label_settings = SubResource("LabelSettings_0gu3w")
+
+[node name="Portrait" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = 104.0
+offset_right = -208.0
+offset_bottom = 504.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("6_sw20m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 759.0
+offset_right = 1240.0
+offset_bottom = 987.0
+theme_override_constants/separation = 24
+
+[node name="ThankYouTitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_tm2bo")
+text = "Thank you for playing ;)"
+label_settings = SubResource("LabelSettings_1d1ta")
+vertical_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1020, 140)
+layout_mode = 2
+theme = ExtResource("3_tm2bo")
+theme_override_font_sizes/font_size = 80
+text = ">Back to the main_menu"
+
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

@@ -1,6 +1,8 @@
 class_name BattleOverPanel
 extends Panel
 
+const MAIN_MENU_PATH = "res://scenes/ui/main_menu.tscn"
+
 enum Type {WIN, LOSE}
 
 @onready var result_label: Label = %ResultLabel
@@ -18,7 +20,7 @@ func _on_continue_button_pressed() -> void:
 	Events.battle_won.emit()
 
 func _on_restart_button_pressed() -> void:
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file(MAIN_MENU_PATH)
 
 func show_screen(text: String, type: Type) -> void:
 	result_label.text = text

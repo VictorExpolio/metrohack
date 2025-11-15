@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="TrueBatteryStatus" load_steps=3 format=3 uid="uid://1nvne5i7kdqo"]
 
-[ext_resource type="Texture2D" uid="uid://4lfwinlqojbb" path="res://art/More_kenney/tile_0005.png" id="1_f1e7x"]
 [ext_resource type="Script" uid="uid://htbbij25yuax" path="res://statuses/true_battery_status.gd" id="2_f1e7x"]
+
+[sub_resource type="Resource" id="Resource_fr17m"]
+metadata/__load_path__ = "res://art/art_test/Status/status_TRUE_BATTERY.png"
 
 [resource]
 script = ExtResource("2_f1e7x")
@@ -11,6 +13,6 @@ stack_type = 0
 can_expire = false
 duration = 0
 stacks = 0
-icon = ExtResource("1_f1e7x")
+icon = SubResource("Resource_fr17m")
 tooltip = "Charged -> Gain 1 charged, at the start of the turn."
 metadata/_custom_type_script = "uid://bd3ukq37glav5"
