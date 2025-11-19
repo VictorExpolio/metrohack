@@ -10,6 +10,7 @@ font = ExtResource("3_7klq2")
 font_size = 52
 
 [node name="StatsUI" type="HBoxContainer"]
+custom_minimum_size = Vector2(380, 72)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -17,17 +18,16 @@ offset_left = -45.0
 offset_right = 12.0
 offset_bottom = 16.0
 grow_horizontal = 2
-theme_override_constants/separation = 40
-alignment = 1
+theme_override_constants/separation = 32
 script = ExtResource("2_7klq2")
 
 [node name="Health" parent="." instance=ExtResource("4_3ktwi")]
 layout_mode = 2
 
 [node name="Block" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(118, 72)
+custom_minimum_size = Vector2(112, 72)
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 12
 
 [node name="BlockImage" type="TextureRect" parent="Block"]
 custom_minimum_size = Vector2(64, 40)

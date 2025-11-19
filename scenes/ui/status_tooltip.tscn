@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bec3dwrcqfrhk"]
+[gd_scene load_steps=5 format=3 uid="uid://bec3dwrcqfrhk"]
 
 [ext_resource type="Script" uid="uid://c6asjg4ainx3t" path="res://scenes/ui/status_tooltip.gd" id="1_nj0h8"]
-[ext_resource type="Texture2D" uid="uid://conv8vrs0o7j0" path="res://art/Status/status_EXPOSED_2.png" id="2_6u54l"]
+[ext_resource type="Texture2D" uid="uid://c12jyy6eevnnb" path="res://art/art_test/statuses/status_CHARGED.png" id="2_6u54l"]
 [ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="2_nj0h8"]
+[ext_resource type="FontFile" uid="uid://duch85xepkhjp" path="res://art/art_test/fonts/spline_text/SplineSansMono-Medium.ttf" id="4_io7cc"]
 
 [node name="StatusTooltip" type="HBoxContainer"]
-custom_minimum_size = Vector2(640, 16)
+custom_minimum_size = Vector2(600, 16)
 offset_right = 160.0
 offset_bottom = 16.0
-theme_override_constants/separation = 32
+theme_override_constants/separation = 24
 script = ExtResource("1_nj0h8")
 
 [node name="Icon" type="TextureRect" parent="."]
@@ -19,11 +20,13 @@ expand_mode = 1
 stretch_mode = 3
 
 [node name="Label" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(120, 60)
+custom_minimum_size = Vector2(520, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme = ExtResource("2_nj0h8")
+theme_override_fonts/normal_font = ExtResource("4_io7cc")
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "Exposed -> Receive 50% Extra damage for %s turns."
 fit_content = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dorf1j446twjv"
-path="res://.godot/imported/Player_terminal_v2.png-3e22d9b27cf5fa36dde86df4067d5247.ctex"
+uid="uid://csl4461coqh1b"
+path="res://.godot/imported/status_TRUE_BATTERY.png-488fd7bbd10ea548129946f4f697f584.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/art_test/player_tool/Player_terminal_v2.png"
-dest_files=["res://.godot/imported/Player_terminal_v2.png-3e22d9b27cf5fa36dde86df4067d5247.ctex"]
+source_file="res://art/art_test/statuses/status_TRUE_BATTERY.png"
+dest_files=["res://.godot/imported/status_TRUE_BATTERY.png-488fd7bbd10ea548129946f4f697f584.ctex"]
 
 [params]
 

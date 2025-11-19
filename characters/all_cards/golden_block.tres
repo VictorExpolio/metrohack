@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dl2mk4mbbfbng"]
+
+[ext_resource type="Texture2D" uid="uid://dlps1diahhc0o" path="res://art/art_test/cards/just_art/card_GOLDBLOCK.png" id="1_xhqs4"]
+[ext_resource type="Script" uid="uid://bo0m2llbm2i47" path="res://characters/all_cards/golden_block.gd" id="2_r14e1"]
+
+[resource]
+script = ExtResource("2_r14e1")
+id = "golden_block"
+type = 1
+rarity = 0
+target = 0
+cost = 1
+trashes = false
+credit_cost = 1
+money_cost = 0
+icon = ExtResource("1_xhqs4")
+tooltip_text = "[center] Blocks [color=\"ff0000\"]%s[/color] damage this turn[/center]"
+metadata/_custom_type_script = "uid://0podk2kml57o"

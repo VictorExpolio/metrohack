@@ -11,7 +11,9 @@ const CARD_MENU_UI_SCENE = preload("res://scenes/ui/card_menu_ui.tscn")
 
 @onready var tooltip_card: CenterContainer = %TooltipCard
 @onready var card_description: RichTextLabel = %CardDescription
-@onready var card_title: Label = $VBoxContainer2/VBoxContainer/CardTitle
+@onready var card_title: Label = %CardTitle
+@onready var card_type: Label = %CardType
+@onready var card_rarity: Label = %CardRarity
 
 func _ready() -> void:
 	for card: CardMenuUI in tooltip_card.get_children():
@@ -42,3 +44,6 @@ func hide_tooltip() -> void:
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_mouse") and visible:
 		hide_tooltip()
+
+func _on_back_buttton_pressed() -> void:
+	hide_tooltip()

@@ -51,6 +51,7 @@ func _get_targets(targets : Array[Node]) -> Array[Node]:
 func play(targets: Array[Node], char_stats: CharacterStats, modifiers: ModifierHandler) -> void:
 	Events.card_played.emit(self)
 	char_stats.mana -= cost
+	char_stats.credit -= credit_cost
 	
 	if is_single_targeted():
 		apply_effects(targets, modifiers)
@@ -66,6 +67,13 @@ func get_default_tooltip() -> String:
 func get_update_tooltip(_player_modifiers: ModifierHandler, _enemy_modifiers: ModifierHandler) -> String:
 	return tooltip_text
 
-#test function
+#test functionSSSSSSSSSSSSSSSSSSSS
 func get_money_cost() -> int:
 	return money_cost
+
+#intentos para obtener las strings de estos parametros
+func Type_to_string(type : Type) -> String:
+	return "%s (%s)" % [Type.keys()[type][0]]
+
+func Rarity_to_string(rarity: Rarity) -> String:
+	return "%s (%s)" % [Rarity.keys()[rarity][0]]

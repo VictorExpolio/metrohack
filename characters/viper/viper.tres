@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://bn1m3aeswd3bi"]
 
 [ext_resource type="Script" uid="uid://dxcvhe627nsm1" path="res://custom_resources/character_stats.gd" id="1_1ds70"]
-[ext_resource type="Texture2D" uid="uid://c24y6l0ivlqp7" path="res://art/tile_0108.png" id="1_u1q7d"]
+[ext_resource type="Texture2D" uid="uid://dn377qcnvom3d" path="res://art/art_test/basic_icons/intents_shield.png" id="1_tgd0k"]
 [ext_resource type="Resource" uid="uid://c7t48h3jho6wv" path="res://characters/warrior/warrior_starting_deck.tres" id="3_tgd0k"]
 
 [resource]
@@ -10,10 +10,10 @@ character_name = "Viper"
 description = "Green multitool, give more 
 money so you can stack 
 more powerfull cards."
-portrait = ExtResource("1_u1q7d")
+portrait = ExtResource("1_tgd0k")
 starting_deck = ExtResource("3_tgd0k")
 cards_per_turn = 4
 max_mana = 4
 max_health = 15
-art = ExtResource("1_u1q7d")
+art = ExtResource("1_tgd0k")
 metadata/_custom_type_script = "uid://dxcvhe627nsm1"

@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://cr0be5vqtiq3m" path="res://scenes/ui/tool_selector.gd" id="1_m3gsr"]
 [ext_resource type="Resource" uid="uid://dnvjw5blnr1oc" path="res://scenes/run/run_startup.tres" id="2_fa0j6"]
 [ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="2_tgnkt"]
-[ext_resource type="FontFile" uid="uid://duch85xepkhjp" path="res://art/art_test/fonts/spline_text/SplineSansMono-Medium.ttf" id="4_fa0j6"]
-[ext_resource type="Texture2D" uid="uid://c7xx3uproscj" path="res://art/tile_0128.png" id="4_tgnkt"]
-[ext_resource type="Texture2D" uid="uid://dmo3kff7hvqb4" path="res://art/art_test/player_tool/Player_terminal_PORTRAIT.png" id="6_rar25"]
-[ext_resource type="Texture2D" uid="uid://b2j0jwdqmval6" path="res://art/art_test/basic_icons/intents_damage.png" id="7_e7jux"]
-[ext_resource type="Texture2D" uid="uid://dm6d0jvcyt2tl" path="res://art/art_test/basic_icons/intents_shield ++.png" id="8_c27hu"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="4_rar25"]
+[ext_resource type="FontFile" uid="uid://c4tj4k00bpkas" path="res://art/art_test/fonts/spline_text/SplineSansMono-Regular.ttf" id="5_e7jux"]
+[ext_resource type="Texture2D" uid="uid://dmo3kff7hvqb4" path="res://art/art_test/player_tool/Player_terminal_PORTRAIT.png" id="6_fa0j6"]
+[ext_resource type="Texture2D" uid="uid://b2j0jwdqmval6" path="res://art/art_test/basic_icons/intents_damage.png" id="7_rar25"]
+[ext_resource type="Texture2D" uid="uid://dn377qcnvom3d" path="res://art/art_test/basic_icons/intents_shield.png" id="8_e7jux"]
 
 [sub_resource type="Gradient" id="Gradient_m1kxf"]
 offsets = PackedFloat32Array(0, 0.270992, 0.851145, 1)
@@ -17,13 +17,14 @@ colors = PackedColorArray(0.550949, 0.669489, 0.850327, 1, 0.569588, 0.706386, 0
 gradient = SubResource("Gradient_m1kxf")
 
 [sub_resource type="LabelSettings" id="LabelSettings_uhagc"]
-font_size = 96
+font = ExtResource("4_rar25")
+font_size = 64
 shadow_size = 2
 shadow_color = Color(0.225898, 0.155582, 0.338307, 0.6)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0gu3w"]
-font = ExtResource("4_fa0j6")
-font_size = 24
+font = ExtResource("5_e7jux")
+font_size = 48
 shadow_size = 2
 shadow_color = Color(0.225898, 0.155582, 0.338307, 0.6)
 
@@ -51,10 +52,10 @@ metadata/_edit_lock_ = true
 
 [node name="ToolTitle" type="Label" parent="."]
 layout_mode = 2
-offset_left = 141.0
-offset_top = 85.0
-offset_right = 885.0
-offset_bottom = 211.0
+offset_left = 186.0
+offset_top = 201.0
+offset_right = 602.0
+offset_bottom = 250.0
 theme = ExtResource("2_tgnkt")
 text = "Flipper Dolphin"
 label_settings = SubResource("LabelSettings_uhagc")
@@ -62,10 +63,10 @@ vertical_alignment = 1
 
 [node name="ToolDescription" type="Label" parent="."]
 layout_mode = 2
-offset_left = 151.0
-offset_top = 299.0
-offset_right = 539.0
-offset_bottom = 395.0
+offset_left = 183.0
+offset_top = 306.0
+offset_right = 960.0
+offset_bottom = 489.0
 theme = ExtResource("2_tgnkt")
 text = "All purpose multitool,
 easy acces to all kinds of 
@@ -73,36 +74,37 @@ terminals and devices."
 label_settings = SubResource("LabelSettings_0gu3w")
 
 [node name="Portrait" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(400, 400)
+custom_minimum_size = Vector2(480, 480)
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -664.0
-offset_top = -155.0
-offset_right = -264.0
-offset_bottom = 245.0
+offset_left = -702.0
+offset_top = -122.0
+offset_right = -222.0
+offset_bottom = 358.0
 grow_horizontal = 0
 grow_vertical = 2
-texture = ExtResource("4_tgnkt")
+texture = ExtResource("6_fa0j6")
 
 [node name="StartButton" type="Button" parent="."]
+custom_minimum_size = Vector2(400, 120)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -837.0
-offset_top = -218.0
-offset_right = -357.0
-offset_bottom = -78.0
+offset_left = -809.0
+offset_top = -202.0
+offset_right = -409.0
+offset_bottom = -82.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_tgnkt")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 48
 text = "::>START"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -110,12 +112,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -243.0
-offset_top = 111.0
-offset_right = -127.0
-offset_bottom = 147.0
+offset_left = -735.0
+offset_top = 194.0
+offset_right = -183.0
+offset_bottom = 354.0
 grow_horizontal = 0
-theme_override_constants/separation = 24
+theme_override_constants/separation = 36
 
 [node name="DolphinButton" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(160, 160)
@@ -133,15 +135,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -72.0
-offset_top = -70.0
-offset_right = 68.0
-offset_bottom = 70.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_rar25")
+texture = ExtResource("6_fa0j6")
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 5
 
 [node name="AntButton" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(160, 160)
@@ -164,7 +166,7 @@ offset_right = 10.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_e7jux")
+texture = ExtResource("7_rar25")
 expand_mode = 1
 stretch_mode = 5
 
@@ -183,15 +185,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -61.0
-offset_right = 60.0
-offset_bottom = 59.0
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("8_c27hu")
+texture = ExtResource("8_e7jux")
 expand_mode = 1
-stretch_mode = 6
+stretch_mode = 5
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/DolphinButton" to="." method="_on_dolphin_button_pressed"]

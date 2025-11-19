@@ -9,6 +9,7 @@ font = ExtResource("3_r7myk")
 font_size = 52
 
 [node name="HealthUI" type="HBoxContainer"]
+custom_minimum_size = Vector2(228, 0)
 theme_override_constants/separation = 18
 script = ExtResource("1_fht25")
 

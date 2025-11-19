@@ -10,14 +10,14 @@ font = ExtResource("4_slxna")
 font_size = 34
 
 [node name="ManaUI" type="Panel"]
-custom_minimum_size = Vector2(120, 60)
+custom_minimum_size = Vector2(120, 48)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 500.0
 offset_top = -512.0
 offset_right = 620.0
-offset_bottom = -452.0
+offset_bottom = -472.0
 grow_vertical = 0
 theme = ExtResource("1_labvs")
 script = ExtResource("2_bgy5i")

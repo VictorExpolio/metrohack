@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="3_qotfm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h67t"]
-bg_color = Color(0.517113, 0.682044, 0.556322, 0.47451)
+bg_color = Color(0.207843, 0.219608, 0.431373, 0.47451)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qotfm"]
 font = ExtResource("3_qotfm")

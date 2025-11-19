@@ -9,14 +9,14 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -24.0
-offset_right = 87.0
-offset_bottom = 64.0
+offset_right = 131.0
+offset_bottom = 111.0
 grow_horizontal = 2
 theme_override_constants/separation = 20
 script = ExtResource("1_rdgft")
 
 [node name="Icon" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(60, 60)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture = ExtResource("2_rdgft")
 expand_mode = 1
@@ -27,6 +27,6 @@ custom_minimum_size = Vector2(12, 12)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("3_jvjc4")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 84
 text = "6"
 vertical_alignment = 1

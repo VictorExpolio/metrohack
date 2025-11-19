@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b2qx4v4d07f0i"]
+[gd_scene load_steps=13 format=3 uid="uid://b2qx4v4d07f0i"]
 
 [ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="1_x0ouv"]
 [ext_resource type="Script" uid="uid://bl24f0oogg2qo" path="res://scenes/ui/card_visuals.gd" id="2_imfec"]
@@ -14,6 +14,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_njcf5"]
 font = ExtResource("5_m3e03")
 font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_b8ve4"]
+font_size = 36
 
 [node name="CardVisuals" type="Control"]
 custom_minimum_size = Vector2(240, 312)
@@ -73,7 +76,8 @@ offset_right = 234.0
 offset_bottom = 279.0
 color = Color(0.431373, 0.482353, 0.65098, 1)
 
-[node name="CreditCost" type="TextureRect" parent="."]
+[node name="CreditComponent" type="TextureRect" parent="."]
+modulate = Color(0.954994, 0.686993, 0.420358, 1)
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -123,5 +127,17 @@ offset_right = 44.0
 offset_bottom = 62.0
 text = "2"
 label_settings = SubResource("LabelSettings_njcf5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditCost" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 192.0
+offset_top = 180.0
+offset_right = 222.0
+offset_bottom = 227.0
+text = "2"
+label_settings = SubResource("LabelSettings_b8ve4")
 horizontal_alignment = 1
 vertical_alignment = 1

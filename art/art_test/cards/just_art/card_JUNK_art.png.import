@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dorf1j446twjv"
-path="res://.godot/imported/Player_terminal_v2.png-3e22d9b27cf5fa36dde86df4067d5247.ctex"
+uid="uid://23xu7ngxxcae"
+path="res://.godot/imported/card_JUNK_art.png-ee6cd02302f644887bcc20921cd59a58.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/art_test/player_tool/Player_terminal_v2.png"
-dest_files=["res://.godot/imported/Player_terminal_v2.png-3e22d9b27cf5fa36dde86df4067d5247.ctex"]
+source_file="res://art/art_test/cards/just_art/card_JUNK_art.png"
+dest_files=["res://.godot/imported/card_JUNK_art.png-ee6cd02302f644887bcc20921cd59a58.ctex"]
 
 [params]
 

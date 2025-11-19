@@ -2,31 +2,31 @@
 
 [ext_resource type="Script" uid="uid://cmhdbybute183" path="res://scenes/enemy/enemy_action_picker.gd" id="1_bjf0w"]
 [ext_resource type="Script" uid="uid://ih84nv0shdxa" path="res://enemies/crab/crab_attack_action.gd" id="2_fqf88"]
-[ext_resource type="Texture2D" uid="uid://b2j0jwdqmval6" path="res://art/art_test/basic_icons/intents_damage.png" id="3_moca1"]
 [ext_resource type="Script" uid="uid://bh3m4jr01qsn6" path="res://enemies/crab/crab_block_action.gd" id="3_nw8nb"]
+[ext_resource type="Texture2D" uid="uid://bfvi02kojsa00" path="res://art/tile_0103.png" id="3_yv4lo"]
 [ext_resource type="Script" uid="uid://cgbvdg0r51kq1" path="res://custom_resources/intent.gd" id="4_bm7hr"]
 [ext_resource type="Script" uid="uid://gn6rd3scvn16" path="res://enemies/crab/crab_mega_block_action.gd" id="4_mdraf"]
 [ext_resource type="AudioStream" uid="uid://de2ryat1pxq6" path="res://art/enemy_attack.ogg" id="5_moca1"]
-[ext_resource type="Texture2D" uid="uid://dn377qcnvom3d" path="res://art/art_test/basic_icons/intents_shield.png" id="7_trgox"]
+[ext_resource type="Texture2D" uid="uid://bi6pfjs32f820" path="res://art/tile_0101.png" id="6_moca1"]
+[ext_resource type="Texture2D" uid="uid://oe7v35ii8vrs" path="res://art/tile_0102.png" id="8_trgox"]
 [ext_resource type="AudioStream" uid="uid://k8m4o3hlwm7l" path="res://art/enemy_block.ogg" id="8_yihd4"]
-[ext_resource type="Texture2D" uid="uid://dm6d0jvcyt2tl" path="res://art/art_test/basic_icons/intents_shield ++.png" id="10_yihd4"]
 
 [sub_resource type="Resource" id="Resource_yihd4"]
 script = ExtResource("4_bm7hr")
 base_text = "%s"
-icon = ExtResource("3_moca1")
+icon = ExtResource("3_yv4lo")
 metadata/_custom_type_script = "uid://cgbvdg0r51kq1"
 
 [sub_resource type="Resource" id="Resource_34me6"]
 script = ExtResource("4_bm7hr")
 base_text = "%s"
-icon = ExtResource("7_trgox")
+icon = ExtResource("6_moca1")
 metadata/_custom_type_script = "uid://cgbvdg0r51kq1"
 
 [sub_resource type="Resource" id="Resource_0pw8a"]
 script = ExtResource("4_bm7hr")
 base_text = "%s"
-icon = ExtResource("10_yihd4")
+icon = ExtResource("8_trgox")
 metadata/_custom_type_script = "uid://cgbvdg0r51kq1"
 
 [node name="CrabEnemyAI" type="Node"]

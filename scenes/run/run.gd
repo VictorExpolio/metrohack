@@ -10,8 +10,6 @@ const CAMPFIRE_SCENE = preload("res://scenes/campfire/campfire.tscn")
 #hasta que no hagamos la de eventos usaremos la de la tienda
 const EVENT_SCENE = preload("res://scenes/shop/shop.tscn")
 
-const WIN_SCREEN_SCENE = preload("res://scenes/win_screen/win_screen.tscn")
-
 @onready var map: Map = $Map
 
 @export var run_startup: RunStartup
@@ -104,17 +102,10 @@ func _on_battle_room_entered(room: Room) -> void:
 	battle_scene.start_battle()
 	
 func _on_battle_won() -> void:
-	if map.floors_climbed == MapGenerator.FLOORS:
-		var win_screen := _change_view(WIN_SCREEN_SCENE) as WinScreen
-		#win_screen.character = character
-	else:
-		_show_regular_battle_rewards()
-
-func _show_regular_battle_rewards() -> void:
 	var reward_scene := _change_view(BATTLE_REWARDS_SCENE) as BattleReward
 	reward_scene.run_stats = stats
 	reward_scene.character_stats = character
-	
+	#temporary code -> later program random rewards
 	
 	reward_scene.add_money_reward(map.last_room.battle_stats.roll_gold_reward())
 	reward_scene.add_card_reward()

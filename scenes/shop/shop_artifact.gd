@@ -9,7 +9,7 @@ const ARTIFACT_UI = preload("res://scenes/artifact_handler/artifact_ui.tscn")
 @onready var price_label: Label = %PriceLabel
 @onready var buy_button: Button = %BuyButton
 
-@onready var money_cost : int = randi_range(80, 130)
+@onready var money_cost : int = randi_range(20, 80)
 
 func set_artifact(new_artifact: Artifact) -> void:
 	if not is_node_ready():

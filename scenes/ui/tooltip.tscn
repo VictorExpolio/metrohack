@@ -6,16 +6,16 @@
 [ext_resource type="FontFile" uid="uid://duch85xepkhjp" path="res://art/art_test/fonts/spline_text/SplineSansMono-Medium.ttf" id="4_acp5l"]
 
 [node name="Tooltip" type="PanelContainer"]
-custom_minimum_size = Vector2(280, 360)
+custom_minimum_size = Vector2(320, 360)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -897.0
-offset_top = -320.0
-offset_right = -617.0
-offset_bottom = 40.0
+offset_left = -362.0
+offset_top = -230.0
+offset_right = -42.0
+offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_kv0sd")
@@ -30,11 +30,10 @@ theme_override_constants/margin_bottom = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 8
 
 [node name="TooltipIcon" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 120)
+custom_minimum_size = Vector2(40, 100)
 layout_mode = 2
 texture = ExtResource("3_o3msy")
 expand_mode = 1
@@ -46,7 +45,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("4_acp5l")
-theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "[center]tooltip help if needed
 tooltip help if needed[/center]"

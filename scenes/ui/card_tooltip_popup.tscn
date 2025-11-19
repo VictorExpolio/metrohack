@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqth2eyt5mj4e"]
+[gd_scene load_steps=8 format=3 uid="uid://cqth2eyt5mj4e"]
 
 [ext_resource type="Script" uid="uid://c2qa75kcuck65" path="res://scenes/ui/card_tooltip_popup.gd" id="1_khfwb"]
 [ext_resource type="PackedScene" uid="uid://cn5t6b45d5nwj" path="res://scenes/ui/card_menu_ui.tscn" id="1_xpdyn"]
 [ext_resource type="Theme" uid="uid://khyscqqmwjts" path="res://main_theme.tres" id="2_khfwb"]
+[ext_resource type="FontFile" uid="uid://ba2qu6bcy7vvs" path="res://art/art_test/fonts/display_momo/MomoTrustDisplay-Regular.ttf" id="4_yctnr"]
+[ext_resource type="FontFile" uid="uid://duch85xepkhjp" path="res://art/art_test/fonts/spline_text/SplineSansMono-Medium.ttf" id="5_1oqf8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yctnr"]
+font = ExtResource("4_yctnr")
+font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_sobtc"]
-font_size = 48
+font = ExtResource("4_yctnr")
+font_size = 24
 
 [node name="CardTooltipPopup" type="Control"]
 layout_mode = 3
@@ -24,65 +31,81 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.254902, 0.247059, 0.298039, 0.537255)
+color = Color(0.256247, 0.248523, 0.298701, 0.784314)
 
 [node name="BackgroundCard" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 386.0
-offset_top = 206.0
-offset_right = -334.0
-offset_bottom = -194.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0.144456, 0.13936, 0.172332, 0.784314)
-
-[node name="VBoxContainer2" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(934, 511.5)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -448.0
-offset_top = -217.0
-offset_right = 356.0
-offset_bottom = 183.0
+offset_left = -467.0
+offset_right = 467.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+color = Color(0.144456, 0.13936, 0.172332, 0.784314)
 
-[node name="TooltipCard" type="CenterContainer" parent="VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 583.0
+offset_top = 318.0
+offset_right = 1343.0
+offset_bottom = 681.0
+
+[node name="CardTitle" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("2_khfwb")
+text = "CARD TITLE"
+label_settings = SubResource("LabelSettings_yctnr")
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+
+[node name="TooltipCard" type="CenterContainer" parent="VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="CardMenuUI2" parent="VBoxContainer2/TooltipCard" instance=ExtResource("1_xpdyn")]
+[node name="CardMenuUI2" parent="VBoxContainer/VBoxContainer2/TooltipCard" instance=ExtResource("1_xpdyn")]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
-custom_minimum_size = Vector2(120, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(420, 0)
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 20
 
-[node name="CardTitle" type="Label" parent="VBoxContainer2/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="CardType" type="Label" parent="VBoxContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_khfwb")
-text = "CARD TITLE"
+text = "Type: Attack"
 label_settings = SubResource("LabelSettings_sobtc")
-horizontal_alignment = 1
 
-[node name="CardDescription" type="RichTextLabel" parent="VBoxContainer2/VBoxContainer"]
+[node name="CardRarity" type="Label" parent="VBoxContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("2_khfwb")
+text = "Rarity: Uncommon"
+label_settings = SubResource("LabelSettings_sobtc")
+
+[node name="CardDescription" type="RichTextLabel" parent="VBoxContainer/VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme = ExtResource("2_khfwb")
+theme_override_fonts/normal_font = ExtResource("5_1oqf8")
 bbcode_enabled = true
 text = "Card 001 Description1122 Card Description
 

@@ -1,13 +1,11 @@
 [gd_resource type="Resource" script_class="CharacterStats" load_steps=7 format=3 uid="uid://sygadfnlild3"]
 
+[ext_resource type="Texture2D" uid="uid://dorf1j446twjv" path="res://art/art_test/player_tool/Player_terminal_v2.png" id="1_4dwfv"]
 [ext_resource type="Script" uid="uid://dxcvhe627nsm1" path="res://custom_resources/character_stats.gd" id="1_nliw2"]
 [ext_resource type="Resource" uid="uid://tnykk0iyh6hj" path="res://characters/warrior/warrior_draftable_cards.tres" id="2_wgifn"]
 [ext_resource type="Texture2D" uid="uid://dmo3kff7hvqb4" path="res://art/art_test/player_tool/Player_terminal_PORTRAIT.png" id="3_imjtc"]
 [ext_resource type="Resource" uid="uid://c7t48h3jho6wv" path="res://characters/warrior/warrior_starting_deck.tres" id="3_wgifn"]
 [ext_resource type="Resource" uid="uid://dcn5kcafxiggy" path="res://artifacts/energy_boost.tres" id="4_6x0nb"]
-
-[sub_resource type="Resource" id="Resource_6x0nb"]
-metadata/__load_path__ = "res://art/art_test/player_tool/Player_terminal_v2.png"
 
 [resource]
 script = ExtResource("1_nliw2")
@@ -19,8 +17,9 @@ portrait = ExtResource("3_imjtc")
 starting_deck = ExtResource("3_wgifn")
 draftable_cards = ExtResource("2_wgifn")
 cards_per_turn = 4
+max_hand_size = 7
 max_mana = 4
 starting_artifact = ExtResource("4_6x0nb")
 max_health = 48
-art = SubResource("Resource_6x0nb")
+art = ExtResource("1_4dwfv")
 metadata/_custom_type_script = "uid://dxcvhe627nsm1"
